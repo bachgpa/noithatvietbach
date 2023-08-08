@@ -1,0 +1,20 @@
+@import "normalize.css";
+
+:root {
+  --text-color: #383838;
+  --primary: #ff852e;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1.6rem;
+  text-decoration: none;
+  box-sizing: border-box;
+}
