@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Routes>
           {/* map qua file route, lấy ra Layout & Component */}
-          {publicRoutes.map((route, index, component) => {
+          {publicRoutes.map((route, index) => {
             var Layout;
             const Page = route.component;
             switch (route.layout) {
