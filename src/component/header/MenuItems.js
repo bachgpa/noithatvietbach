@@ -1,16 +1,37 @@
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useRef, useState } from "react";
 
 import style from "./Header.module.scss";
 import Dropdown from "./Dropdown";
-import { useState } from "react";
 
 function MenuItems({ items }) {
-  const [dropdown, setDropdown] = useState(true);
-
+  const [dropdown, setDropdown] = useState(false);
+  let refMenuItems = useRef();
+  useEffect(() => {
+    const handler = (event) => {
+      if (
+        dropdown &&
+        refMenuItems.current &&
+        !refMenuItems.current.contains(event.target)
+      ) {
+        setDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      // cleanup the event listener
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [dropdown]);
   return (
-    <div className={clsx(style.headerOption)}>
+    <div
+      className={clsx(style.headerOption)}
+      ref={refMenuItems}
+    >
       {items.submenu ? (
         <>
           {/* case có submenu */}

@@ -1,1 +1,8 @@
 @import "normalize.css";
+
+.App {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
