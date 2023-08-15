@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import style from "./Header.module.scss";
+// import style from "./Header.module.scss";
+import style from "./Header2.module.scss";
 import { MenuItemlist } from "./MenuItemList";
 import MenuItems from "./MenuItems";
 
@@ -9,16 +10,6 @@ function NavBar() {
       {MenuItemlist.map((menu, index) => {
         return <MenuItems items={menu} key={index} />;
       })}
-      {/* {MenuItemlist.map((menu, index) => {
-        return (
-          <div className={clsx(style.headerOption)}>
-        
-            <a href={menu.url} className={clsx(style.headerOptionLink)}>
-              {menu.engTitle}
-            </a>
-          </div>
-        );
-      })} */}
     </div>
   );
 }

@@ -3,12 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
 
-import style from "./Header.module.scss";
+// import style from "./Header.module.scss";
+import style from "./Header2.module.scss";
 import Dropdown from "./Dropdown";
 
 function MenuItems({ items }) {
   const [dropdown, setDropdown] = useState(false);
   let refMenuItems = useRef();
+
+  // nhấn ra ngoài thì tất dropdown
   useEffect(() => {
     const handler = (event) => {
       if (
@@ -27,6 +30,7 @@ function MenuItems({ items }) {
       document.removeEventListener("touchstart", handler);
     };
   }, [dropdown]);
+
   return (
     <div
       className={clsx(style.headerOption)}
@@ -42,6 +46,10 @@ function MenuItems({ items }) {
               setDropdown((prev) => !prev);
             }}
           >
+            <FontAwesomeIcon
+              className={clsx(style.headerIcon)}
+              icon={items.icon}
+            />
             {items.engTitle}
             <FontAwesomeIcon
               className={clsx(style.headerIcon)}
@@ -61,6 +69,10 @@ function MenuItems({ items }) {
           className={clsx(style.headerOptionLink)}
           href={items.url}
         >
+          <FontAwesomeIcon
+            className={clsx(style.headerIcon)}
+            icon={items.icon}
+          />
           {items.engTitle}
         </a>
       )}

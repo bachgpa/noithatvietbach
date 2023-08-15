@@ -1,15 +1,19 @@
-// import clsx from "clsx";
+import clsx from "clsx";
 // import style from "./DefaultLayout.module.scss";
-import SideBar from "../../component/sidebar";
+import style from "./DefaultLayout.module.scss";
 import Header from "../../component/header";
+import SearchInput from "../../component/header/SearchInput";
 
 function DefaultLayout({ children }) {
   return (
-    <div>
+    <div className={clsx(style.defaultLayoutPart)}>
       <Header />
-      <div className="container">
-        <SideBar />
-        <div className="content">{children}</div>
+      <div className={clsx(style.container)}>
+        <SearchInput />
+
+        <div className={clsx(style.content)}>
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -1,13 +1,25 @@
+import {
+  // faMagnifyingGlass,
+  faCircleInfo,
+  faFolderClosed,
+  faFolderOpen,
+  faNewspaper,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+
 export const MenuItemlist = [
   {
     engTitle: "About Us",
     vieTitle: "Giới thiệu",
     url: "/",
+    icon: faCircleInfo,
   },
   {
     engTitle: "Product",
     vieTitle: "Sản phẩm",
     url: "/",
+    icon: faFolderClosed,
+    changedIcon: faFolderOpen,
     submenu: [
       {
         engTitle: "title1",
@@ -31,6 +43,16 @@ export const MenuItemlist = [
       },
     ],
   },
-  { engTitle: "News", vieTitle: "Tin tức", url: "/" },
-  { engTitle: "Contact", vieTitle: "Liên hệ", url: "/" },
+  {
+    engTitle: "News",
+    vieTitle: "Tin tức",
+    url: "/",
+    icon: faNewspaper,
+  },
+  {
+    engTitle: "Contact",
+    vieTitle: "Liên hệ",
+    url: "/",
+    icon: faPhone,
+  },
 ];
