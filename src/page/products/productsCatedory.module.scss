@@ -1,0 +1,42 @@
+.productsCategory {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.productItem {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1.4rem;
+  background-color: var(--border-color);
+  max-width: 74rem;
+  min-width: 32rem;
+  margin: 1.4rem 1.4rem 1.4rem 1.4rem;
+  border-radius: 0.8rem;
+  flex: 1;
+}
+.productImg {
+  display: flex;
+  justify-self: center;
+  flex: 1;
+  height: 25rem;
+  width: 25rem;
+  margin-bottom: 2rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.8rem;
+}
+.productDetail {
+  display: flex;
+  flex: 1;
+}
+.productTitle {
+}
+.productName {
+}
+.productDes {
+}
+.productPrice {
+}

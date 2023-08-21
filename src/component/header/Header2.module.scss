@@ -14,7 +14,12 @@
   background-color: #fff;
   border-right: 1px solid #dbdbdb;
   padding: 0.8rem 1.2rem 2rem 1.2rem;
-  width: 22rem;
+  box-sizing: border-box;
+  width: 22vw;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .headerLogoContain {
@@ -65,6 +70,10 @@
   }
 }
 
+.headerOptionText {
+  display: flex;
+}
+
 .headerIcon {
   margin: 0 0.8rem;
 }
@@ -105,12 +114,16 @@
 
 .searchBar {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
   position: relative;
   top: 0;
-  flex: 1;
-  padding: 1.2rem;
+  flex: 1 1;
+  padding: 1.2rem 1.2rem 1.2rem 0;
+  margin-left: 1.2rem;
 }
 .searchPart {
   width: 60rem;
@@ -121,6 +134,7 @@
   overflow: hidden;
   border-radius: 0.8rem;
   position: relative;
+  width: 100%;
 }
 .searchInput {
   border: 1px solid transparent;
@@ -166,5 +180,86 @@
     filter: brightness(108%);
   }
 }
+// RESULT PART
 .resultPart {
+  display: none;
+  max-height: 50vh;
+  overflow-y: scroll;
+  width: calc(100% - 1.4rem);
+  width: 100%;
+  padding: 1.2rem;
+  box-sizing: border-box;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: calc(100% - 1.4rem);
+  border-radius: 0.8rem;
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: 0 0 1.4rem 0 var(--border-color);
+}
+
+.resultPart::-webkit-scrollbar {
+  position: absolute;
+  width: 1.6rem;
+}
+.resultPart::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 0.4rem;
+  width: 0.2rem;
+  height: 4rem;
+}
+.resultPart::-webkit-scrollbar-track {
+  background-color: var(--border-color);
+  max-height: 50vh;
+  border-radius: 0.4rem;
+}
+
+.resultPart::-webkit-scrollbar-button {
+  display: none;
+}
+
+.resultPart.show {
+  display: flex;
+  flex-direction: column;
+}
+.productLink {
+  color: var(--text-color);
+  text-decoration: none;
+  display: flex;
+  padding: 0.8rem 0;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  background-color: #fff;
+  &:hover {
+    cursor: pointer;
+    > .productInfo {
+      background-color: #efefef;
+    }
+  }
+}
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0.4rem 1rem;
+  border-radius: 0.8rem;
+  flex: 1;
+}
+.linkNotfound {
+  display: flex;
+  pointer-events: none;
+}
+.productImg {
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 0.8rem;
+  margin-right: 0.4rem;
+}
+.productCategory {
+  margin-bottom: 1rem;
+}
+.productName {
 }

@@ -2,23 +2,22 @@ import { useLocation } from "react-router-dom";
 import clsx from "clsx";
 import style from "./productsCatedory.module.scss";
 import productsCategory from "./productsCategory";
+import { HandleSearchInfo } from "../../component/header/SearchInput";
+
+// function hiển thị kết quả tìm kiếm, được export ra ngoài để dùng
 
 function Products() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const searchQuery = searchParams.get("search"); // Lấy giá trị của query parameter "search"
-  console.log(searchQuery);
+  console.log("searchQuery :", searchQuery);
 
-  const filteredProducts = productsCategory.filter(
-    (product) => {
-      const a = searchQuery || "";
-      return product.name
-        .toLowerCase()
-        .includes(a.toLocaleLowerCase());
-    }
+  const filteredProducts = HandleSearchInfo(
+    productsCategory,
+    searchQuery || ""
   );
-  console.log(filteredProducts);
 
+  console.log(filteredProducts);
   return (
     <div className={clsx(style.productsCategory)}>
       {filteredProducts.map((product) => {

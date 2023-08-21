@@ -50,7 +50,9 @@ function MenuItems({ items }) {
               className={clsx(style.headerIcon)}
               icon={items.icon}
             />
-            {items.engTitle}
+            <div className={clsx(style.headerOptionText)}>
+              {items.engTitle}
+            </div>
             <FontAwesomeIcon
               className={clsx(style.headerIcon)}
               icon={faCaretDown}

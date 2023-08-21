@@ -14,7 +14,7 @@ let productsCategoryDemo = [
     category: "Ghế sofa",
     price: 3500000,
     description: "Ghế sofa da thật, êm ái và thoải mái.",
-    image: require("../../assets/products/sofa.webp"),
+    image: require("../../assets/products/sofaSquare.jpg"),
   },
 ];
 
@@ -23,7 +23,7 @@ for (var a = 1; a < 100; a++) {
     console.log("so le a = ", a);
     productsCategoryDemo.push({
       id: `${a + 2}`,
-      name: `Bàn trà gỗ sồi cô đơn trên sofa ${a}`,
+      name: `Bàn gỗ sồi cô đơn trên sofa ${a}`,
       category: "Bàn trà",
       price: 1500000,
       description:
@@ -33,12 +33,12 @@ for (var a = 1; a < 100; a++) {
   } else {
     productsCategoryDemo.push({
       id: `${a + 2}`,
-      name: `Bàn trà gỗ sồi cô đơn trên sofa ${a}`,
-      category: "Ghế sofa",
+      name: `gì đó đá gỗ sồi cô đơn trên sofa ${a}`,
+      category: "Chảo sofa",
       price: 1500000000000000,
       description:
         "Ghế sofa da thật, bàn trà ngồi bên trên êm ái và thoải mái.",
-      image: require("../../assets/products/sofa.webp"),
+      image: require("../../assets/products/sofaSquare.jpg"),
     });
   }
 }

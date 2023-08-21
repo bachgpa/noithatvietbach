@@ -2,7 +2,7 @@ import clsx from "clsx";
 // import style from "./DefaultLayout.module.scss";
 import style from "./DefaultLayout.module.scss";
 import Header from "../../component/header";
-import SearchInput from "../../component/header/SearchInput";
+import { SearchInput } from "../../component/header/SearchInput";
 
 function DefaultLayout({ children }) {
   return (

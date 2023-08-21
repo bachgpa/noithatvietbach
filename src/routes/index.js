@@ -14,7 +14,7 @@ const publicRoutes = [
   {
     path: "/products",
     component: Products,
-    layout: "Products",
+    layout: "products",
   },
 ];
 const privateRoutes = [];
