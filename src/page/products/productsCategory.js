@@ -7,6 +7,13 @@ let productsCategoryDemo = [
     description:
       "Bàn trà gỗ sồi tự nhiên, kiểu dáng hiện đại.",
     image: require("../../assets/products/Ban-tra-52-500x500.webp"),
+    number: 1998,
+    carousel: [
+      require("../../assets/products/Ban-tra-52-500x500.webp"),
+      require("../../assets/products/Ban-tra-52-500x500.webp"),
+      require("../../assets/products/sofaSquare.jpg"),
+      require("../../assets/products/banTra.jpg"),
+    ],
   },
   {
     id: 2,
@@ -15,6 +22,13 @@ let productsCategoryDemo = [
     price: 3500000,
     description: "Ghế sofa da thật, êm ái và thoải mái.",
     image: require("../../assets/products/sofaSquare.jpg"),
+    number: 1998,
+    carousel: [
+      require("../../assets/products/Ban-tra-52-500x500.webp"),
+      require("../../assets/products/Ban-tra-52-500x500.webp"),
+      require("../../assets/products/sofaSquare.jpg"),
+      require("../../assets/products/banTra.jpg"),
+    ],
   },
 ];
 
@@ -29,6 +43,13 @@ for (var a = 1; a < 100; a++) {
       description:
         "Bàn trà gỗ sồi tự nhiên, kiểu dáng hiện đại.",
       image: require("../../assets/products/Ban-tra-52-500x500.webp"),
+      number: 1998,
+      carousel: [
+        require("../../assets/products/Ban-tra-52-500x500.webp"),
+        require("../../assets/products/Ban-tra-52-500x500.webp"),
+        require("../../assets/products/sofaSquare.jpg"),
+        require("../../assets/products/banTra.jpg"),
+      ],
     });
   } else {
     productsCategoryDemo.push({
@@ -39,6 +60,13 @@ for (var a = 1; a < 100; a++) {
       description:
         "Ghế sofa da thật, bàn trà ngồi bên trên êm ái và thoải mái.",
       image: require("../../assets/products/sofaSquare.jpg"),
+      number: 9881,
+      carousel: [
+        require("../../assets/products/Ban-tra-52-500x500.webp"),
+        require("../../assets/products/Ban-tra-52-500x500.webp"),
+        require("../../assets/products/sofaSquare.jpg"),
+        require("../../assets/products/banTra.jpg"),
+      ],
     });
   }
 }

@@ -1,13 +1,13 @@
-import { useRef, useState } from "react";
-// import style from "./Header.module.scss";
+import { useRef, useState, useEffect } from "react";
 import style from "./Header2.module.scss";
+
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleXmark,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import productsCategory from "../../page/products/productsCategory";
 import _ from "lodash";
 
@@ -29,7 +29,6 @@ function HandleSearchInfo(products, query) {
       lowerCaseCategory.includes(lowerCaseQuery)
     );
   });
-  console.log(filteredProducts);
   if (filteredProducts.length === 0) {
     console.log("none search result");
     return (filteredProducts = [
@@ -49,163 +48,110 @@ function HandleSearchInfo(products, query) {
   }
 }
 
-// function SearchInput() {
-//   const [query, setQuery] = useState("");
-//   const [notFoundInfo, setNotFoundInfo] = useState("#");
-//   const navigate = useNavigate();
-
-//   const handlerSearch = () => {
-//     query && navigate(`/products?search=${query}`);
-//     // Thêm query parameter "search" và giá trị của query
-//   };
-
-//   const filteredProducts = HandleSearchInfo(
-//     productsCategory,
-//     query
-//   );
-//   const handleQueryChange = (e) => {
-//     setQuery(e.target.value);
-//     const filteredProducts = HandleSearchInfo(
-//       productsCategory,
-//       e.target.value
-//     );
-//     filteredProducts.linkNotfound
-//       ? setNotFoundInfo(null)
-//       : setNotFoundInfo("#");
-//     return filteredProducts;
-//   };
-//   const deleteQuery = () => {
-//     setQuery("");
-//   };
-//   console.log(notFoundInfo);
-//   console.log(filteredProducts.linkNotfound);
-
-//   return (
-//     <div className={clsx(style.searchBar)}>
-//       <div className={clsx(style.searchPart)}>
-//         <input
-//           className={clsx(style.searchInput)}
-//           type="text"
-//           value={query}
-//           onChange={handleQueryChange}
-//           placeholder="Tìm kiếm ..."
-//         />
-//         {query ? (
-//           <button
-//             className={clsx(style.headerSearchIcon)}
-//             onClick={deleteQuery}
-//           >
-//             <FontAwesomeIcon icon={faCircleXmark} />
-//           </button>
-//         ) : (
-//           <div></div>
-//         )}
-//         <button
-//           className={clsx(style.searchBtn)}
-//           onClick={handlerSearch}
-//         >
-//           <FontAwesomeIcon icon={faMagnifyingGlass} />
-//         </button>
-//       </div>
-
-//       <div
-//         className={clsx(style.resultPart, {
-//           [style.show]: query,
-//         })}
-//       >
-//         {filteredProducts.map((product, index) => {
-//           return (
-//             <div
-//               className={clsx(style.productLink, {
-//                 [style.linkNotfound]: notFoundInfo,
-//               })}
-//             >
-//               <img
-//                 className={clsx(style.productImg)}
-//                 alt="anh san pham"
-//                 src={product.image}
-//               />
-//               <div
-//                 key={index}
-//                 className={clsx(style.productInfo)}
-//               >
-//                 <div
-//                   className={clsx(style.productCategory)}
-//                 >
-//                   {product.category}
-//                 </div>
-//                 <div className={clsx(style.productName)}>
-//                   {product.name}
-//                 </div>
-//               </div>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
-
 function SearchInput() {
-  // khởi tạo trạng thái cần lưu trữ
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const [searchError, setSearchError] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const inputRef = useRef(null);
 
-  //khởi tạo chuyển hướng trang
   const navigate = useNavigate();
-  // const history = useHistory();
-
   const searchRef = useRef(null);
 
-  // xử lý sự kiện
+  // LỌC KQ TÌM KIẾM
   function handleInputChange(e) {
-    const newQuery = e.target.value;
-    setQuery(newQuery);
-    setShowResults(true);
-    setSearchError(false);
-    // lấy giá trị của query render kết quả tìm kiếm
-    const filteredProducts = productsCategory.filter(
-      (product) => {
-        const lowerCaseQuery = _.deburr(
-          newQuery.toLowerCase().replace(/\s/g, "")
-        );
-        const lowerCaseName = _.deburr(
-          product.name.toLowerCase().replace(/\s/g, "")
-        );
-        const lowerCaseCategory = _.deburr(
-          product.category.toLowerCase().replace(/\s/g, "")
-        );
-        return (
-          lowerCaseName.includes(lowerCaseQuery) ||
-          lowerCaseCategory.includes(lowerCaseQuery)
-        );
-      }
+    setQuery(e.target.value);
+    console.log(query);
+
+    // lấy giá trị của VALUE render kết quả tìm kiếm
+    const filteredProducts = HandleSearchInfo(
+      productsCategory,
+      e.target.value
     );
-    console.log(filteredProducts);
-    return filteredProducts;
+    setResults(filteredProducts);
   }
 
+  // XÓA QUERY
   function deleteSearch() {
     setQuery("");
-    setShowResults(false);
   }
 
+  // XỬ LÝ KEYBOARD
+  function handleEnterKeyPress(event) {
+    if (event.key === "Enter") {
+      // Thực hiện hàm khi nhấn phím "Enter"
+      console.log("đã enter");
+      searchRef.current.value && handlerSearch();
+    }
+  }
+
+  // CHUYỂN TRANG
   const handlerSearch = () => {
     query && navigate(`/products?search=${query}`);
-    // Thêm query parameter "search" và giá trị của query
+    setQuery("");
   };
 
+  const handleProductClick = (event) => {
+    const productId =
+      event.currentTarget.getAttribute("keyid");
+    moveToProductPage(productId);
+    event.stopPropagation(); // Ngăn chặn sự kiện click từ lan rộng ra các phần tử cha
+    setQuery("");
+  };
+  function moveToProductPage(e) {
+    console.log(e);
+    query && navigate(`/products?search=${e}`);
+    setQuery("");
+  }
+
+  // HÀM XỬ LÝ CLICK RA NGOÀI INPUT
+  const handleOutsideClick = (event) => {
+    if (
+      // nhấn ra ngoài
+      inputRef.current &&
+      !inputRef.current.contains(event.target)
+    ) {
+      setShowResults(false);
+    }
+    if (
+      // nhấn vào trong và có giá trị đang tìm kiếm
+      inputRef.current &&
+      inputRef.current.contains(event.target) &&
+      searchRef.current.value
+    ) {
+      setShowResults(true);
+    }
+  };
+
+  // THÊM SỰ KIỆN CLICK SẼ GỌI HÀM handleOutsideClick
+  useEffect(() => {
+    document.addEventListener("click", handleOutsideClick);
+    return () => {
+      document.removeEventListener(
+        "click",
+        handleOutsideClick
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    setShowResults(query !== "");
+  }, [query]);
+
+  //
+  //
+  //
+  //
   return (
-    <div className={clsx(style.searchBar)}>
+    <div className={clsx(style.searchBar)} ref={inputRef}>
+      {/* SEARCH PART  */}
       <div className={clsx(style.searchPart)}>
         <input
+          ref={searchRef}
           className={clsx(style.searchInput)}
           type="text"
           value={query}
           onChange={handleInputChange}
+          onKeyDown={handleEnterKeyPress}
           placeholder="Tìm kiếm ..."
         />
 
@@ -224,9 +170,38 @@ function SearchInput() {
         </button>
       </div>
 
-      <div className={clsx(style.resultPart)}>
-        resultPart
-      </div>
+      {/* RESULT PART  */}
+      {showResults && (
+        <div className={clsx(style.resultPart)}>
+          {results.map((product) => {
+            return (
+              <Link
+                className={clsx(style.productLink)}
+                onClick={handleProductClick}
+                keyid={product.id}
+                to={`/products/${product.id}`}
+              >
+                {product.id}
+                <img
+                  className={clsx(style.productImg)}
+                  alt="anh san pham"
+                  src={product.image}
+                />
+                <div className={clsx(style.productInfo)}>
+                  <div
+                    className={clsx(style.productCategory)}
+                  >
+                    {product.category}
+                  </div>
+                  <div className={clsx(style.productName)}>
+                    {product.name}
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
