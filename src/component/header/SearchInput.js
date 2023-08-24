@@ -13,7 +13,6 @@ import _ from "lodash";
 
 // function xử lý trùng khớp query và mảng sản phẩm
 function HandleSearchInfo(products, query) {
-  console.log(query);
   let filteredProducts = products.filter((product) => {
     const lowerCaseQuery = _.deburr(
       query.toLowerCase().replace(/\s/g, "")
@@ -30,7 +29,6 @@ function HandleSearchInfo(products, query) {
     );
   });
   if (filteredProducts.length === 0) {
-    console.log("none search result");
     return (filteredProducts = [
       {
         id: 1,
@@ -43,7 +41,6 @@ function HandleSearchInfo(products, query) {
       },
     ]);
   } else {
-    console.log("ket quar else");
     return filteredProducts;
   }
 }
@@ -79,7 +76,7 @@ function SearchInput() {
   function handleEnterKeyPress(event) {
     if (event.key === "Enter") {
       // Thực hiện hàm khi nhấn phím "Enter"
-      console.log("đã enter");
+      console.log("đã enter", query);
       searchRef.current.value && handlerSearch();
     }
   }
@@ -87,6 +84,7 @@ function SearchInput() {
   // CHUYỂN TRANG
   const handlerSearch = () => {
     query && navigate(`/products?search=${query}`);
+    console.log(query);
     setQuery("");
   };
 

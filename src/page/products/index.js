@@ -3,20 +3,21 @@ import clsx from "clsx";
 import style from "./productsCatedory.module.scss";
 import productsCategory from "./productsCategory";
 import { HandleSearchInfo } from "../../component/header/SearchInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // function hiển thị kết quả tìm kiếm, được export ra ngoài để dùng
 
 function Products() {
+  // Lấy giá trị của query parameter "search"
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const [searchQuery, setSearchQuery] = useState(
-    searchParams.get("search")
-  );
-  // Lấy giá trị của query parameter "search"
-  // const searchQuery = searchParams.get("search");
-  console.log("searchQuery :", searchQuery);
+  const [searchQuery, setSearchQuery] = useState("");
 
+  const takeQuery = searchParams.get("search");
+  // gán lại giá trị cho searchQuery mỗi lẫn render
+  useEffect(() => {
+    setSearchQuery(takeQuery);
+  }, [takeQuery]);
   const filteredProducts = HandleSearchInfo(
     productsCategory,
     searchQuery || ""
@@ -43,6 +44,7 @@ function Products() {
                 alt="anh san pham"
                 src={product.image}
               />
+              {console.log(product.image)}
               <div className={clsx(style.productDetail)}>
                 <div className={clsx(style.productTitle)}>
                   <div className={clsx(style.productName)}>
