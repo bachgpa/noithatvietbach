@@ -153,12 +153,14 @@ function SearchInput() {
           placeholder="Tìm kiếm ..."
         />
 
-        <button
-          className={clsx(style.headerSearchIcon)}
-          onClick={deleteSearch}
-        >
-          <FontAwesomeIcon icon={faCircleXmark} />
-        </button>
+        {query && (
+          <button
+            className={clsx(style.headerSearchIcon)}
+            onClick={deleteSearch}
+          >
+            <FontAwesomeIcon icon={faCircleXmark} />
+          </button>
+        )}
 
         <button
           className={clsx(style.searchBtn)}

@@ -1,0 +1,24 @@
+.Btn {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+    filter: brightness(108%);
+  }
+  &:active {
+    filter: brightness(100%);
+  }
+}
+
+.primary {
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+  // margin: 12px;
+}
+.medium {
+  // height: 40px;
+  // width: 80px;
+}

@@ -122,8 +122,9 @@
   position: relative;
   top: 0;
   flex: 1 1;
-  padding: 1.2rem 1.2rem 1.2rem 0;
+  padding: 1.2rem 0 1.2rem 0;
   margin-left: 1.2rem;
+  min-width: 410px;
 }
 .searchPart {
   width: 60rem;

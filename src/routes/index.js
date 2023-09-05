@@ -2,6 +2,7 @@ import Home from "../page/home";
 import Cart from "../page/cart";
 import Products from "../page/products";
 import ProductsDetail from "../page/productsDetail";
+import productsCategory from "../page/products/productsCategory";
 
 // public routes
 
@@ -15,13 +16,20 @@ const publicRoutes = [
   {
     path: "/products",
     component: Products,
-    layout: "products",
+    layout: "DefaultLayout",
   },
   {
     path: "/products/:productsId",
     component: ProductsDetail,
-    layout: "products",
+    layout: "DefaultLayout",
+  },
+  {
+    path: "/category",
+    component: productsCategory,
+    layout: "DefaultLayout",
   },
 ];
+
 const privateRoutes = [];
+
 export { publicRoutes, privateRoutes };

@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { parseInt } from "lodash";
 import Carousel from "../../component/productCarousel";
 
-function ProductsDetail() {
+function ProductsCategory() {
   const { productsId } = useParams();
 
   //Get product
@@ -43,4 +43,4 @@ function ProductsDetail() {
   );
 }
 
-export default ProductsDetail;
+export default ProductsCategory;

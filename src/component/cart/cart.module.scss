@@ -1,0 +1,66 @@
+:root {
+  --button-margin: 12px;
+}
+
+.cartDisplay {
+  display: flex;
+  flex: 0.4;
+  position: relative;
+}
+
+.cartBtn {
+  display: flex;
+  flex: 1;
+  color: #fff;
+  background-color: var(--primary);
+  border: none;
+  position: relative;
+  margin: var(--button-margin);
+  min-width: 261px;
+}
+.cartBtn::after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 12px;
+  width: 100%;
+  background-color: transparent;
+}
+.cartBtn p {
+  color: black;
+  position: absolute;
+  top: -20px;
+  right: calc(50% - 1px);
+  transform: translateX(50%);
+  background-color: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 9999px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.cartContain {
+  position: absolute;
+  top: 100%;
+  height: 0;
+  right: var(--button-margin);
+  left: var(--button-margin);
+  pointer-events: none;
+  transition: all 0.15s ease, pointer-events 0s; /* Thêm transition cho pointer-events */
+  overflow: hidden;
+  padding: 0 8px;
+  z-index: 1;
+  background-color: var(--primary);
+  border-radius: 12px;
+}
+
+.cartContain.active {
+  opacity: 1;
+  top: 100%;
+  height: 400px;
+  pointer-events: auto; /* Kích hoạt tương tác khi active */
+  padding: 8px;
+}

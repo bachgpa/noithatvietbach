@@ -1,13 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import style from "./productsCatedory.module.scss";
-import productsCategory from "./productsCategory";
 import { HandleSearchInfo } from "../../component/header/SearchInput";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { categoryContext } from "../../App";
 
 // function hiển thị kết quả tìm kiếm, được export ra ngoài để dùng
 
 function Products() {
+  const productsCategory = useContext(categoryContext);
   // Lấy giá trị của query parameter "search"
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);

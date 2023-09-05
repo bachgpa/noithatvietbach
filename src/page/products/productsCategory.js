@@ -10,8 +10,8 @@ let productsCategoryDemo = [
     number: 1998,
     carousel: [
       require("../../assets/products/Ban-tra-52-500x500.webp"),
-      require("../../assets/products/Ban-tra-52-500x500.webp"),
       require("../../assets/products/sofaSquare.jpg"),
+      require("../../assets/products/Ban-tra-52-500x500.webp"),
       require("../../assets/products/banTra.jpg"),
     ],
   },
@@ -25,8 +25,8 @@ let productsCategoryDemo = [
     number: 1998,
     carousel: [
       require("../../assets/products/Ban-tra-52-500x500.webp"),
-      require("../../assets/products/Ban-tra-52-500x500.webp"),
       require("../../assets/products/sofaSquare.jpg"),
+      require("../../assets/products/Ban-tra-52-500x500.webp"),
       require("../../assets/products/banTra.jpg"),
     ],
   },
@@ -46,16 +46,28 @@ for (var a = 1; a < 100; a++) {
       number: 1998,
       carousel: [
         require("../../assets/products/Ban-tra-52-500x500.webp"),
-        require("../../assets/products/Ban-tra-52-500x500.webp"),
         require("../../assets/products/sofaSquare.jpg"),
+        require("../../assets/products/Ban-tra-52-500x500.webp"),
         require("../../assets/products/banTra.jpg"),
+        require("../../assets/products/Ban-tra-52-500x500.webp"),
+        require("../../assets/products/banTra.jpg"),
+        require("../../assets/products/Ban-tra-52-500x500.webp"),
       ],
+      details: {
+        address:
+          " Số 7749, đường A, phường B, quận C, thành phố D",
+        materials:
+          "Gỗ công nghiệp chất lượng nhập khẩu, sắt Hòa Phát",
+        size: "nhỏ: 3m x 1m x 0.5m (dài x rộng x cao), vừa: 3m x 1m x 0.5m (dài x rộng x cao), lớn: 3m x 1m x 0.5m (dài x rộng x cao)",
+        sendFrom: "thành phố D",
+        storage: 123456,
+      },
     });
   } else {
     productsCategoryDemo.push({
       id: `${a + 2}`,
       name: `gì đó đá gỗ sồi cô đơn trên sofa ${a}`,
-      category: "Chảo sofa",
+      category: "Chiếu",
       price: 1500000000000000,
       description:
         "Ghế sofa da thật, bàn trà ngồi bên trên êm ái và thoải mái.",
@@ -63,10 +75,22 @@ for (var a = 1; a < 100; a++) {
       number: 9881,
       carousel: [
         require("../../assets/products/Ban-tra-52-500x500.webp"),
-        require("../../assets/products/Ban-tra-52-500x500.webp"),
         require("../../assets/products/sofaSquare.jpg"),
+        require("../../assets/products/Ban-tra-52-500x500.webp"),
         require("../../assets/products/banTra.jpg"),
+        require("../../assets/products/Ban-tra-52-500x500.webp"),
+        require("../../assets/products/banTra.jpg"),
+        require("../../assets/products/Ban-tra-52-500x500.webp"),
       ],
+      details: {
+        address:
+          " Số 7749, đường A, phường B, quận C, thành phố D",
+        materials:
+          "Gỗ công nghiệp chất lượng nhập khẩu, sắt Hòa Phát",
+        size: "nhỏ: 3m x 1m x 0.5m (dài x rộng x cao), vừa: 3m x 1m x 0.5m (dài x rộng x cao), lớn: 3m x 1m x 0.5m (dài x rộng x cao)",
+        sendFrom: "thành phố D",
+        storage: 123456,
+      },
     });
   }
 }

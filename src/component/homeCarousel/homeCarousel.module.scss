@@ -1,0 +1,141 @@
+:root {
+  --carousel-square: 410px;
+  --carousel-item-square: 20px;
+  --border-radius: 12px;
+}
+.carousel {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  // width: 100%;
+}
+
+.imgList {
+  display: flex;
+  position: relative;
+  flex-shrink: 1;
+  height: var(--carousel-square);
+  overflow: hidden;
+  margin: 0 12px 12px 12px;
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+}
+
+.imgContainer {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  transition: all 0.4s ease-in-out;
+}
+.carouselMainImg {
+  height: var(--carousel-square);
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin-left: 12px;
+}
+.carouselMainImg:first-child {
+  height: var(--carousel-square);
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin-left: 0;
+}
+
+.carouselThumbnail {
+  display: flex;
+  position: absolute;
+  bottom: 44px;
+  right: 0;
+  width: fit-content;
+  align-items: center;
+  padding: 0 12px;
+}
+.carouselItemContainer {
+  display: inline-flex;
+  overflow-x: auto;
+  // scrollbar-width: none;
+  // -ms-overflow-style: none;
+  // width: var(--carousel-square);
+  margin-right: 24px;
+  border-radius: var(--border-radius);
+  scroll-snap-type: mandatory;
+  transition: transform 0.4s ease-in-out;
+}
+.carouselItemContainer::-webkit-scrollbar {
+  display: none;
+}
+.previousBtn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 34%;
+  padding: 18px;
+  border: none;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  opacity: 0.4;
+  background-color: #fff;
+  cursor: pointer;
+  z-index: 1;
+  &:focus-visible {
+    outline: none;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.nextBtn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  height: 34%;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 18px;
+  border: none;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  opacity: 0.4;
+  background-color: #fff;
+  cursor: pointer;
+  z-index: 1;
+  &:focus-visible {
+    outline: none;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.carouselItem {
+  width: var(--carousel-item-square);
+  height: var(--carousel-item-square);
+  object-fit: cover;
+  object-position: center;
+  margin-right: 12px;
+  border-radius: var(--border-radius);
+  border: 2px solid transparent;
+  // scroll-snap-align: start;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  opacity: 0.5;
+  &:hover {
+    box-shadow: inset 0 0 4px 0 var(--border-color);
+    cursor: pointer;
+  }
+  box-sizing: border-box;
+}
+
+.carouselItem:last-child {
+  margin-right: 0;
+}
+
+.active {
+  transition: all 0.4s;
+  border: 2px solid var(--primary);
+  opacity: 1;
+  // right: 0;
+  // position: absolute;
+}
