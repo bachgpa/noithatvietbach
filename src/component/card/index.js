@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import { Link } from "react-router-dom";
+import Button from "../button";
+import style from "./card.module.scss";
 
 // props là một object có cấu trúc:
 // {
@@ -22,16 +24,32 @@ import { Link } from "react-router-dom";
 
 function Card({ props, css }) {
   return (
-    <div className={clsx(css.cardContainer)}>
+    <div
+      className={clsx(
+        css.cardContainer,
+        style.cardContainer1
+      )}
+    >
       <Link
         className={clsx(css.Link)}
         to={`/products/${props.id}`}
       />
-      <img
-        className={clsx(css.cardImg)}
-        alt="anh san pham"
-        src={props.image}
-      />
+      <div className={clsx(style.imgContainer)}>
+        <img
+          className={clsx(css.cardImg)}
+          alt="anh san pham"
+          src={props.image}
+        ></img>
+        <div className={clsx(style.btnCardContainer)}>
+          <Button
+            Tag={"Link"}
+            Type={"primary"}
+            Size={"medium"}
+            Children={"Xem nhanh"}
+            className={clsx(style.BtnCard)}
+          ></Button>
+        </div>
+      </div>
       <div className={clsx(css.cardInfo)}>
         <div className={clsx(css.cardCategory)}>
           {props.category}

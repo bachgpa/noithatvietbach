@@ -1,12 +1,13 @@
 import clsx from "clsx";
 import style from "./productsCatedory.module.scss";
 import productsCategory from "../products/productsCategory";
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { parseInt } from "lodash";
 import Carousel from "../../component/productCarousel";
 
 function ProductsDetail() {
+  const [num, setNum] = useState(1);
   const { productsId } = useParams();
 
   //Get product
@@ -38,6 +39,7 @@ function ProductsDetail() {
         <div className={clsx(style.productNumber)}>
           Có sẵn {currentProduct.number}
         </div>
+        <div className={clsx()}></div>
       </div>
     </div>
   );

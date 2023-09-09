@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import style from "./button.module.scss";
+import style1 from "./button.module.scss";
 import style2 from "../cart/cart.module.scss";
 
 function Button({
@@ -7,19 +7,22 @@ function Button({
   Type,
   Size,
   Classes,
+  ClassForBtn,
   Children,
   ...passProps
 }) {
-  let Comp = Tag;
+  console.log(passProps);
+  let Comp = Tag || "button";
 
   return (
     <Comp
       {...passProps}
       className={clsx(
-        style.Btn,
-        style[Type],
-        style[Size],
+        style1.Btn,
+        style1[Type],
+        style1[Size],
         style2[Classes]
+        // classReceive[ClassForBtn]
       )}
     >
       {Children}

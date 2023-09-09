@@ -4,11 +4,8 @@ import {
   Route,
 } from "react-router-dom";
 
-// import Home from "./page/home";
-// import Cart from "./page/cart";
 import { publicRoutes } from "./routes";
 import { DefaultLayout } from "./layout";
-// import clsx from "clsx";
 
 import "./App.css";
 import { productsCategory } from "./assets/context/Context";

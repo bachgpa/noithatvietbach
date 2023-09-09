@@ -1,0 +1,17 @@
+.imgContainer .btnCardContainer {
+  // display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.imgContainer .BtnCard {
+  border-radius: 0;
+}
+
+.imgContainer {
+  position: relative;
+}
