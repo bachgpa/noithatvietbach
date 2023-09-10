@@ -26,7 +26,7 @@ function CartBtn() {
     >
       <Button
         Tag={"button"}
-        Type={"primary"}
+        Type={"primary borrad"}
         Size={"medium"}
         Classes={"cartBtn"}
         Children={

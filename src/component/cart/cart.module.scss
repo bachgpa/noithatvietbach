@@ -6,6 +6,7 @@
   display: flex;
   flex: 0.4;
   position: relative;
+  width: 100%;
 }
 
 .cartBtn {
@@ -16,7 +17,6 @@
   border: none;
   position: relative;
   margin: var(--button-margin);
-  min-width: 261px;
 }
 .cartBtn::after {
   content: "";

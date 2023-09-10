@@ -2,27 +2,16 @@ import clsx from "clsx";
 import { Link } from "react-router-dom";
 import Button from "../button";
 import style from "./card.module.scss";
+import React from "react";
 
-// props là một object có cấu trúc:
-// {
-//    id:
-//    name: "string",
-//    category: "string",
-//    price: number,
-//    description: "string"
-//    carousel: [
-//     imgs,
-//    ],
-//    details: {
-//      address:
-//        "string",
-//      materials:
-//        "string",
-//      storage: "string",
-//    },
-//  }
+//2 state, 1 cái bật Float,
+// 1 cái truyền dữ liệu cho Float
+
+export const CardInfoContext = React.createContext();
 
 function Card({ props, css }) {
+  // export const cardContext = props;
+  console.log(props);
   return (
     <div
       className={clsx(

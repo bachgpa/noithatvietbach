@@ -41,7 +41,7 @@ function CategorySmall({ category }) {
       <div className={clsx(style.buttonContainer)}>
         <Button
           // Tag={"button"}
-          Type={"primary"}
+          Type={"primary borrad"}
           Size={"medium"}
           ClassForBtn={"btnCategory"}
           Children={"XEM THÊM"}

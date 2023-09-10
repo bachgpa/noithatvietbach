@@ -14,7 +14,6 @@
   display: flex;
   position: relative;
   flex-shrink: 1;
-  height: var(--carousel-square);
   overflow: hidden;
   margin: 0 12px 12px 12px;
   border-radius: var(--border-radius);
@@ -25,40 +24,35 @@
   display: inline-flex;
   flex-wrap: nowrap;
   transition: all 0.4s ease-in-out;
+  touch-action: pan-x;
 }
 .carouselMainImg {
-  height: var(--carousel-square);
   width: 100%;
   object-fit: cover;
   object-position: center;
   margin-left: 12px;
 }
 .carouselMainImg:first-child {
-  height: var(--carousel-square);
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
   margin-left: 0;
 }
 
 .carouselThumbnail {
   display: flex;
   position: absolute;
-  bottom: 44px;
+  bottom: 10%;
   right: 0;
-  width: fit-content;
   align-items: center;
   padding: 0 12px;
 }
 .carouselItemContainer {
-  display: inline-flex;
+  display: flex;
   overflow-x: auto;
   // scrollbar-width: none;
   // -ms-overflow-style: none;
   // width: var(--carousel-square);
   margin-right: 24px;
   border-radius: var(--border-radius);
-  scroll-snap-type: mandatory;
+  scroll-snap-type: x mandatory;
   transition: transform 0.4s ease-in-out;
 }
 .carouselItemContainer::-webkit-scrollbar {
@@ -113,6 +107,8 @@
 .carouselItem {
   width: var(--carousel-item-square);
   height: var(--carousel-item-square);
+  width: 20px;
+  height: 20px;
   object-fit: cover;
   object-position: center;
   margin-right: 12px;

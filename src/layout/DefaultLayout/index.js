@@ -9,13 +9,15 @@ function DefaultLayout({ children }) {
   return (
     <div className={clsx(style.defaultLayoutPart)}>
       <Header />
-      <div className={clsx(style.container)}>
-        <div className={clsx(style.headPart)}>
-          <SearchInput />
-          <CartBtn />
-        </div>
-        <div className={clsx(style.content)}>
-          {children}
+      <div className={clsx(style.containerPosition)}>
+        <div className={clsx(style.container)}>
+          <div className={clsx(style.headPart)}>
+            <SearchInput />
+            <CartBtn />
+          </div>
+          <div className={clsx(style.content)}>
+            {children}
+          </div>
         </div>
       </div>
     </div>
