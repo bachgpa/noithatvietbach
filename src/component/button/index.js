@@ -11,10 +11,9 @@ function Button({
   Children,
   ...passProps
 }) {
-  console.log(passProps);
   let Comp = Tag || "button";
   const typeList = Type.split(" ");
-  console.log(typeList);
+
   return (
     <Comp
       {...passProps}

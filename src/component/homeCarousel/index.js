@@ -17,14 +17,14 @@ function HomeCarousel({ items }) {
     carouselImgContainer.current.offsetWidth;
   useEffect(() => {
     const setTimeCurrent = setTimeout(() => {
-      console.log("timeout dang chay ...");
+      // console.log("timeout dang chay ...");
       current === items.length - 1
         ? setCurrent(0)
         : setCurrent(current + 1);
     }, 7000);
 
     return () => {
-      console.log("timeout bi go");
+      // console.log("timeout bi go");
       clearTimeout(setTimeCurrent);
     };
   }, [current, items.length]);
@@ -46,7 +46,6 @@ function HomeCarousel({ items }) {
     setCurrent(index);
   }
   function handleScroll() {
-    console.log("e");
     scrollRef.scrollLeft = scrollRef.scrollTop;
     scrollRef.scrollTop = 0;
   }

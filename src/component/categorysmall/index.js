@@ -9,6 +9,7 @@ import { useState } from "react";
 function CategorySmall({ category }) {
   const [page, setPage] = useState(1);
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     let a = (page - 1) * 10;
     let b = a + 10;
