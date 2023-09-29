@@ -1,7 +1,10 @@
 .container {
   display: flex;
+  margin-left: 12px;
+  justify-content: space-between;
 }
 .productImgShow {
+  margin-right: 24px;
 }
 
 .productCarousel {
@@ -19,15 +22,63 @@
 }
 .productPrice {
   font-size: 24px;
-  font-weight: 600;
+  // font-weight: 600;
   color: var(--primary);
   margin-bottom: 12px;
+  padding: 15px 20px;
+  background-color: #fafafa;
 }
-.productDescription {
-}
+
 .productNumber {
   font-size: 16px;
   font-weight: 600;
   color: green;
   margin-top: 12px;
+}
+.infoTable {
+  display: flex;
+  flex-direction: column;
+}
+.infoTitle {
+  display: flex;
+  align-items: center;
+}
+
+.infoTitle h4 {
+  width: 140px;
+  display: flex;
+}
+.infoDetail {
+  display: flex;
+}
+.infoColor {
+}
+.infoOptions {
+  margin: 0 8px 0 0;
+  padding: 4px 12px;
+  // background-color: #919191;
+  // background-color: ;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 5rem;
+  min-height: 2.125rem;
+  border: 1px solid var(--border-color);
+  &:hover {
+    cursor: pointer;
+    border-color: var(--primary);
+  }
+}
+
+.infoButton {
+  margin-top: 48px;
+}
+.infoSize {
+}
+.infoSizeDetail {
+}
+.colorOfProduct {
+}
+.infoInsurance {
 }

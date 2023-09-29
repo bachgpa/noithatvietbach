@@ -19,7 +19,6 @@ function Button({
       {...passProps}
       className={clsx(
         style1.Btn,
-        // style1[Type],
         typeList.map((type) => style1[type]),
         style1[Size],
         style2[Classes]

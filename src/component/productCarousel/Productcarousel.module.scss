@@ -17,14 +17,13 @@
   object-fit: cover;
   object-position: center;
   overflow: hidden;
-  margin: 0 12px 12px 12px;
+  margin: 0 0 12px 0;
   border-radius: var(--border-radius);
 }
 
 .carouselThumbnail {
   display: flex;
   align-items: center;
-  padding: 0 12px;
   width: var(--carousel-square);
   position: relative;
   //   height: var(--carousel-item-square);
@@ -44,7 +43,7 @@
 .previousBtn {
   display: flex;
   align-items: center;
-  margin: 0 12px;
+  // margin: 0 12px;
   position: absolute;
   left: 0;
   height: 50%;
@@ -66,7 +65,7 @@
 .nextBtn {
   display: flex;
   align-items: center;
-  margin: 0 12px;
+  // margin: 0 12px;
   position: absolute;
   right: 0;
   height: 50%;

@@ -1,47 +1,29 @@
+import { CardContext } from "../../page/home";
+import AddToCartBtn from "../addToCartBtn";
+import Form from "../form2";
+import Carousel from "../productCarousel";
 import "./floatInfo.css";
 import { useContext, useEffect, useRef } from "react";
-import {
-  getActive,
-  setActive,
-  setData,
-} from "../../page/home";
 
 function FloatInfo() {
-  const data = useContext(setData);
-  const activeFuction = useContext(getActive);
-  let active = useContext(setActive);
-  useEffect(() => {}, [setActive]);
+  const { selectedCard } = useContext(CardContext);
+  const { setSelectedCard } = useContext(CardContext);
 
-  function setFalse() {
-    activeFuction(false);
-  }
-  function setTrue() {
-    activeFuction(true);
-  }
-
-  // const [active, setActiveFloat] = useState(getActive);
-  // console.log(getActive, active);
   const floatRef = useRef(null);
+  const bgFloatRef = useRef(null);
 
-  // HÀM XỬ LÝ CLICK RA NGOÀI INPUT
-  const handleOutsideClick = (event) => {
+  function handleOutsideClick(e) {
+    e.preventDefault();
     if (
-      // nhấn ra ngoài
-      floatRef.current &&
-      !floatRef.current.contains(event.target)
+      bgFloatRef.current &&
+      bgFloatRef.current.contains(e.target) &&
+      !floatRef.current.contains(e.target)
     ) {
-      setFalse();
+      setSelectedCard(false);
+      console.log("nhap ra ngoai floatref", selectedCard);
     }
-    if (
-      // nhấn vào trong và có giá trị đang tìm kiếm
-      floatRef.current &&
-      floatRef.current.contains(event.target) &&
-      floatRef.current.value
-    ) {
-      setTrue();
-    }
-  };
-  // THÊM SỰ KIỆN CLICK SẼ GỌI HÀM handleOutsideClick
+  }
+
   useEffect(() => {
     document.addEventListener("click", handleOutsideClick);
     return () => {
@@ -50,27 +32,47 @@ function FloatInfo() {
         handleOutsideClick
       );
     };
+    // eslint-disable-next-line
   }, []);
+
+  function handleAddCartClick() {
+    return { selectedCard };
+  }
 
   return (
     <div>
-      {active && (
-        <div className="backgroundFloat">
+      {selectedCard && (
+        <div
+          className="backgroundFloat"
+          onClick={handleOutsideClick}
+          ref={bgFloatRef}
+        >
           <div
             className="floatContainer"
             ref={floatRef}
-            // onClick={switchActive}
+            onClick={handleOutsideClick}
           >
-            <div className="floatImg">img</div>
-            <div className="floatInfo">
-              <div className="floatName">{data.name}</div>
-              <div className="floatCategory">
-                {data.category}
+            <Carousel items={selectedCard.carousel} />
+            <div className="infoContainer">
+              <div className="floatInfo">
+                <div className="floatName">
+                  {selectedCard.name}
+                </div>
+                <div className="floatCategory">
+                  {selectedCard.category}
+                </div>
+                <div className="floatPrice">
+                  {selectedCard.price}
+                </div>
+                <div className="floatDescription">
+                  {selectedCard.description}
+                </div>
               </div>
-              <div className="floatPrice">{data.price}</div>
-              <div className="floatDescription">
-                {data.description}
-              </div>
+
+              <AddToCartBtn
+                onClick={handleAddCartClick}
+                cardItem={selectedCard}
+              />
             </div>
           </div>
         </div>

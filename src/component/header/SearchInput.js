@@ -181,7 +181,7 @@ function SearchInput() {
                 keyid={product.id}
                 to={`/products/${product.id}`}
               >
-                {product.id}
+                {/* {product.id} */}
                 <img
                   className={clsx(style.productImg)}
                   alt="anh san pham"

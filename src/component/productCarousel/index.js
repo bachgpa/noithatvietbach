@@ -24,6 +24,7 @@ function Carousel({ items }) {
     const index = parseInt(e.target.getAttribute("index"));
     setCurrent(index);
   }
+
   function handleScroll() {
     console.log("e");
     scrollRef.scrollLeft = scrollRef.scrollTop;
@@ -63,10 +64,10 @@ function Carousel({ items }) {
               <img
                 ref={thumbnailRef}
                 key={index}
+                index={index}
                 className={clsx(style.carouselItem, {
                   [style.active]: current === index,
                 })}
-                index={index}
                 onClick={handleThumbnailClick}
                 alt="carouselItem"
                 src={item}

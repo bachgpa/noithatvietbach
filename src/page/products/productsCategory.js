@@ -8,6 +8,8 @@ let productsCategoryDemo = [
       "Bàn trà gỗ sồi tự nhiên, kiểu dáng hiện đại.",
     image: require("../../assets/products/Ban-tra-52-500x500.webp"),
     number: 1998,
+    color: ["black", "brown", "green", "pink"],
+    size: ["s", "m", "l", "xl", "xxl"],
     carousel: [
       require("../../assets/products/Ban-tra-52-500x500.webp"),
       require("../../assets/products/sofaSquare.jpg"),
@@ -23,6 +25,8 @@ let productsCategoryDemo = [
     description: "Ghế sofa da thật, êm ái và thoải mái.",
     image: require("../../assets/products/sofaSquare.jpg"),
     number: 1998,
+    color: ["black", "brown", "green", "pink"],
+    size: ["s", "m", "l", "xl", "xxl"],
     carousel: [
       require("../../assets/products/Ban-tra-52-500x500.webp"),
       require("../../assets/products/sofaSquare.jpg"),
@@ -36,7 +40,8 @@ for (var a = 1; a < 100; a++) {
   if (a % 2 !== 0) {
     console.log("so le a = ", a);
     productsCategoryDemo.push({
-      id: `${a + 2}`,
+      id: a + 2,
+      // id: `${a + 2}`,
       name: `Bàn gỗ sồi cô đơn trên sofa ${a}`,
       category: "Bàn trà",
       price: 1500000,
@@ -44,6 +49,8 @@ for (var a = 1; a < 100; a++) {
         "Bàn trà gỗ sồi tự nhiên, kiểu dáng hiện đại.",
       image: require("../../assets/products/Ban-tra-52-500x500.webp"),
       number: 1998,
+      color: ["black", "brown", "green", "pink"],
+      size: ["s", "m", "l", "xl", "xxl"],
       carousel: [
         require("../../assets/products/Ban-tra-52-500x500.webp"),
         require("../../assets/products/sofaSquare.jpg"),
@@ -73,6 +80,8 @@ for (var a = 1; a < 100; a++) {
         "Ghế sofa da thật, bàn trà ngồi bên trên êm ái và thoải mái.",
       image: require("../../assets/products/sofaSquare.jpg"),
       number: 9881,
+      color: ["black", "brown", "green", "pink"],
+      size: ["s", "m", "l", "xl", "xxl"],
       carousel: [
         require("../../assets/products/Ban-tra-52-500x500.webp"),
         require("../../assets/products/sofaSquare.jpg"),

@@ -1,8 +1,13 @@
 .Btn {
-  font-size: 18px;
+  font-size: inherit;
+  font-family: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
   &:hover {
     cursor: pointer;
     filter: brightness(108%);
@@ -19,8 +24,12 @@
 .borrad {
   border-radius: 8px;
 }
+.border {
+  border: 1px solid #ccc;
+}
 .medium {
   padding: 12px 48px;
+  box-sizing: border-box;
   border: none;
   display: flex;
   justify-content: center;

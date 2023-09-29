@@ -26,17 +26,55 @@ function ProductsCategory() {
         </div>
       </div>
       <div className={clsx(style.productInfo)}>
+        {/* name */}
         <div className={clsx(style.productName)}>
           {currentProduct.name}
         </div>
-        <div className={clsx(style.productPrice)}>
-          {currentProduct.price}
-        </div>
-        <div className={clsx(style.productDescription)}>
-          {currentProduct.description}
-        </div>
-        <div className={clsx(style.productNumber)}>
-          Có sẵn {currentProduct.number}
+        {/* box info */}
+        <div className={clsx(style.InfoBox)}>
+          <div className={clsx(style.productPrice)}>
+            {currentProduct.price}
+          </div>
+          {/* <div className={clsx(style.productDescription)}>
+            {currentProduct.description}
+          </div>
+          <div className={clsx(style.productNumber)}>
+            Có sẵn {currentProduct.number}
+          </div> */}
+          <div className={clsx(style.infoTable)}>
+            <div className={clsx(style.infoInsurance)}>
+              <h4>Bảo hành</h4>
+              <div className={clsx(style.infoDetail)}>
+                12 tháng kể từ ngày nhận hàng
+              </div>
+            </div>
+            <div className={clsx(style.infoColor)}>
+              <h4>Màu sắc</h4>
+              <div className={clsx(style.infoDetail)}>
+                {currentProduct.color.map((color) => {
+                  return (
+                    <div
+                      className={clsx(style.colorOfProduct)}
+                    >
+                      {color}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className={clsx(style.infoInsurance)}>
+              <h4>Bảo hành</h4>
+              <div className={clsx(style.infoDetail)}>
+                12 tháng kể từ ngày nhận hàng
+              </div>
+            </div>
+            <div className={clsx(style.infoInsurance)}>
+              <h4>Bảo hành</h4>
+              <div className={clsx(style.infoDetail)}>
+                12 tháng kể từ ngày nhận hàng
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

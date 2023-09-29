@@ -5,9 +5,9 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { parseInt } from "lodash";
 import Carousel from "../../component/productCarousel";
+import AddToCartBtn from "../../component/addToCartBtn";
 
 function ProductsDetail() {
-  const [num, setNum] = useState(1);
   const { productsId } = useParams();
 
   //Get product
@@ -27,19 +27,95 @@ function ProductsDetail() {
         </div>
       </div>
       <div className={clsx(style.productInfo)}>
+        {/* name */}
         <div className={clsx(style.productName)}>
           {currentProduct.name}
         </div>
-        <div className={clsx(style.productPrice)}>
-          {currentProduct.price}
+        {/* box info */}
+        <div className={clsx(style.InfoBox)}>
+          <div className={clsx(style.productPrice)}>
+            {currentProduct.price}
+          </div>
+          {/* <div className={clsx(style.productDescription)}>
+            {currentProduct.description}
+          </div>
+          <div className={clsx(style.productNumber)}>
+            Có sẵn {currentProduct.number}
+          </div> */}
+          <div className={clsx(style.infoTable)}>
+            <div
+              className={clsx(
+                style.infoInsurance,
+                style.infoTitle
+              )}
+            >
+              <h4>Bảo hành</h4>
+              <div className={clsx(style.infoDetail)}>
+                12 tháng kể từ ngày nhận hàng
+              </div>
+            </div>
+            <div
+              className={clsx(
+                style.infoColor,
+                style.infoTitle
+              )}
+            >
+              <h4>Màu sắc</h4>
+              <div className={clsx(style.infoDetail)}>
+                {currentProduct.color.map((color) => {
+                  return (
+                    <div
+                      className={clsx(
+                        style.colorOfProduct,
+                        style.infoOptions
+                      )}
+                    >
+                      {color}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div
+              className={clsx(
+                style.infoSize,
+                style.infoTitle
+              )}
+            >
+              <h4>Size</h4>
+              <div
+                className={clsx(
+                  style.infoDetail,
+                  style.infoSizeDetail
+                )}
+              >
+                {currentProduct.size.map((size, index) => {
+                  return (
+                    <div
+                      tag={index}
+                      className={clsx(
+                        style.sizeOfProduct,
+                        style.infoOptions
+                      )}
+                    >
+                      {size}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div
+              className={clsx(
+                style.infoButton,
+                style.infoTitle
+              )}
+            >
+              <div className={clsx(style.infoDetail)}>
+                <AddToCartBtn cardItem={currentProduct} />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className={clsx(style.productDescription)}>
-          {currentProduct.description}
-        </div>
-        <div className={clsx(style.productNumber)}>
-          Có sẵn {currentProduct.number}
-        </div>
-        <div className={clsx()}></div>
       </div>
     </div>
   );

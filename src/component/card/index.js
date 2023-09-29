@@ -2,22 +2,19 @@ import clsx from "clsx";
 import { Link } from "react-router-dom";
 import Button from "../button";
 import style from "./card.module.scss";
-import React, { useContext } from "react";
-import { getDataFromCard } from "../../page/home";
-
-//2 state, 1 cái bật Float,
-// 1 cái truyền dữ liệu cho Float
+import React, { useContext, useRef } from "react";
+import { CardContext } from "../../page/home";
 
 function Card({ props, css }) {
-  // export const cardContext = props;
-  const handleDataFunction = useContext(getDataFromCard);
+  const cardBtnRef = useRef(null);
+  // distructuring de lay ra setSelectedCard
+  const { setSelectedCard } = useContext(CardContext);
+
   function handleClick(e) {
     e.preventDefault();
-
-    handleDataFunction(props, true);
-    console.log(handleDataFunction);
+    setSelectedCard(props);
   }
-  // console.log("props from card:", props);
+
   return (
     <div
       className={clsx(
@@ -25,10 +22,6 @@ function Card({ props, css }) {
         style.cardContainer1
       )}
     >
-      {/* <Link
-        to={`/products/${props.id}`}
-        className={clsx(css.link)}
-      /> */}
       <Link
         to={`/products/${props.id}`}
         className={clsx(style.imgContainer)}
@@ -40,10 +33,11 @@ function Card({ props, css }) {
         ></img>
         <div className={clsx(style.btnCardContainer)}>
           <Button
+            Children={"Xem nhanh"}
+            ref={cardBtnRef}
             Tag={"Link"}
             Type={"primary"}
             Size={"medium"}
-            Children={"Xem nhanh"}
             className={clsx(style.BtnCard)}
             onClick={handleClick}
           ></Button>

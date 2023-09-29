@@ -7,16 +7,19 @@
   flex: 0.4;
   position: relative;
   width: 100%;
+  box-sizing: border-box;
+  margin: var(--button-margin);
 }
 
 .cartBtn {
+  // margin: var(--button-margin);
   display: flex;
   flex: 1;
   color: #fff;
   background-color: var(--primary);
+  box-sizing: border-box;
   border: none;
   position: relative;
-  margin: var(--button-margin);
 }
 .cartBtn::after {
   content: "";
@@ -44,23 +47,83 @@
 
 .cartContain {
   position: absolute;
-  top: 100%;
+  display: flex;
+  top: calc(100% + 10px);
   height: 0;
-  right: var(--button-margin);
-  left: var(--button-margin);
+  right: 0;
+  left: 0;
   pointer-events: none;
   transition: all 0.15s ease, pointer-events 0s; /* Thêm transition cho pointer-events */
   overflow: hidden;
+  flex-direction: column;
   padding: 0 8px;
-  z-index: 1;
-  background-color: var(--primary);
+  z-index: 2;
+  // background-color: var(--primary);
+  border: 1px solid transparent;
   border-radius: 12px;
+  background-color: #fff;
 }
 
 .cartContain.active {
+  border-color: var(--border-color);
   opacity: 1;
-  top: 100%;
-  height: 400px;
-  pointer-events: auto; /* Kích hoạt tương tác khi active */
+  top: calc(100% + 12px);
+  height: 360px;
+
+  // max-height: 360px;
+  // min-height: 100px;
+  // height: fit-content;
+  pointer-events: auto;
   padding: 8px;
+}
+
+.cartContainer {
+}
+.cartPart {
+  display: flex;
+  margin-bottom: 6px;
+  width: 100%;
+  text-decoration: none;
+  color: var(--text-color);
+}
+.cartItemImg {
+  width: 46px;
+  height: 46px;
+  margin-right: 6px;
+  border-radius: 8px;
+}
+.cartInfoContainer {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+.cartName {
+  display: flex;
+  width: 80%;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+}
+.cartQuantity {
+  margin-left: auto;
+}
+.buttonPart {
+  color: var(--text-color);
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.linkToCart {
+  display: flex;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 8px;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--primary);
 }

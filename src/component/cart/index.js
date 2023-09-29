@@ -4,25 +4,73 @@ import Button from "../button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function CartBtn() {
   const [active, setActive] = useState(false);
-  // const cartRef = useRef(null);
-
-  function onMouseEnter() {
+  function setTrue() {
     setActive(true);
-    console.log("enter");
   }
-  function onMouseLeave() {
+  function setFalse() {
     setActive(false);
-    console.log("leave");
   }
+
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cartItems")) || []
+  );
+  // console.log(cartItems);
+  const [cartNumber, setCartNumber] = useState(0);
+  var filteredCartItems =
+    handleCartItems(cartItems).reverse();
+  // console.log(filteredCartItems);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const num = (
+        JSON.parse(localStorage.getItem("cartItems")) || []
+      ).length;
+
+      if (num !== cartNumber) {
+        console.log("sua cartNumber");
+        setCartNumber(num);
+        setCartItems(
+          JSON.parse(localStorage.getItem("cartItems"))
+        );
+      }
+      console.log("clicked at cart component");
+    };
+    handleStorageChange();
+    document.addEventListener("click", handleStorageChange);
+    return () => {
+      document.removeEventListener(
+        "click",
+        handleStorageChange
+      );
+    };
+  }, [cartNumber]);
+
+  function handleCartItems(cartItems) {
+    return cartItems.reduce((result, item) => {
+      const existingItem = result.find(
+        (i) => i.id === item.id
+      );
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        result.push({ ...item, quantity: 1 });
+      }
+
+      return result;
+    }, []);
+  }
+
   return (
     <div
       className={clsx(style.cartDisplay)}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      // ref={cartRef}
+      onMouseEnter={setTrue}
+      onMouseLeave={setFalse}
     >
       <Button
         Tag={"button"}
@@ -32,25 +80,62 @@ function CartBtn() {
         Children={
           <>
             <FontAwesomeIcon icon={faCartShopping} />
-            <p>{/* {cartNumber} */}1</p>
+            <p>{cartNumber}</p>
           </>
         }
         className={clsx(style.cartBtn)}
       ></Button>
       <div
-        className={clsx(
-          style.cartContain,
-          {
-            [style.active]: active,
-          }
-          // style.active
-        )}
+        className={clsx(style.cartContain, {
+          [style.active]: active,
+        })}
       >
-        noi dung cua cart contain noi dung cua cart
-        containnoi dung cua cart containnoi dung cua cart
-        containnoi dung cua cart containnoi dung cua cart
-        containnoi dung cua cart containnoi dung cua cart
-        contain
+        {filteredCartItems.map(function (cartItem, index) {
+          if (index < 5) {
+            return (
+              <div className={clsx(style.cartContainer)}>
+                <Link
+                  to={`/products/${cartItem.id}`}
+                  onClick={setFalse}
+                  className={clsx(style.cartPart)}
+                >
+                  <img
+                    className={clsx(style.cartItemImg)}
+                    alt="cart Img"
+                    src={cartItem.image}
+                  />
+                  <div
+                    className={clsx(
+                      style.cartInfoContainer
+                    )}
+                  >
+                    <div className={clsx(style.cartName)}>
+                      {cartItem.name}
+                    </div>
+                    <div
+                      className={clsx(style.cartQuantity)}
+                    >
+                      x{cartItem.quantity}
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            );
+          }
+          return null; // Thêm dòng này
+        })}
+        <div
+          onClick={setFalse}
+          className={clsx(style.buttonPart)}
+        >
+          <p>{cartNumber} sản phẩm trong giỏ hàng</p>
+          <Link
+            className={clsx(style.linkToCart)}
+            to={"/cart"}
+          >
+            Xem giỏ hàng
+          </Link>
+        </div>
       </div>
     </div>
   );

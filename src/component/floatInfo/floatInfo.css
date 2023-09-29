@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   /* justify-content: center; */
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -16,12 +16,18 @@
   margin: 0 auto;
   background-color: #fff;
   color: #000;
-  padding: 24px;
+  padding: 18px;
   border-radius: 12px;
 }
 .floatImg {
 }
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 18px;
+}
 .floatInfo {
+  margin-bottom: 48px;
 }
 .floatName {
 }
