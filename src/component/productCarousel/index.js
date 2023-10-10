@@ -38,6 +38,7 @@ function Carousel({ items }) {
             return (
               index === current && (
                 <img
+                  key={index}
                   className={clsx(style.carouselMainImg)}
                   alt="anh san pham"
                   src={item}

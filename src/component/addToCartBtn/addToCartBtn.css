@@ -2,6 +2,18 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 100%;
+}
+
+.adjOption.invalid {
+  background-color: rgb(249, 165, 27, 0.2);
+}
+
+.adjOption {
+  background-color: transparent;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  padding: 0 16px 8px 16px;
 }
 
 .adjNumber {
@@ -80,52 +92,28 @@
   font-size: 16px;
 }
 
-.productInfo {
-  display: flex;
-  flex-direction: column;
-}
-.productName {
-  font-size: 24px;
-  border-bottom: 2px solid var(--border-color);
-  padding: 6px 0 12px 0;
-  margin-bottom: 12px;
-}
-.productPrice {
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--primary);
-  margin-bottom: 12px;
-  padding: 15px 20px;
-  background-color: #fafafa;
-}
-
-.productNumber {
-  font-size: 16px;
-  font-weight: 600;
-  color: green;
-  margin-top: 12px;
-}
-.infoTable {
-  display: flex;
-  flex-direction: column;
-}
 .infoTitle {
   display: flex;
   align-items: center;
+  /* flex-wrap: wrap; */
+  margin: 18px 0;
 }
 
 .infoTitle h4 {
-  width: 140px;
+  min-width: 140px;
   display: flex;
+  margin: 8px 0;
 }
 .infoDetail {
   display: flex;
+  flex-wrap: wrap;
 }
 .infoColor {
 }
 .infoOptions {
   margin: 0 8px 0 0;
   padding: 4px 12px;
+  margin: 8px 4px;
   position: relative;
   border-radius: 8px;
   display: flex;
@@ -134,11 +122,12 @@
   min-width: 5rem;
   min-height: 2.125rem;
   font-size: 16px;
-  background-color: #fff;
+  background-color: transparent;
   font-family: inherit;
   overflow: hidden;
   border: 1px solid var(--border-color);
   user-select: none;
+  /* z-index: 2;  */
   &:hover {
     cursor: pointer;
     border-color: var(--primary);
@@ -153,6 +142,7 @@
 }
 .infoOptions.active::before {
   border-bottom: 1.8rem solid var(--primary, #ee4d2d);
+  user-select: none;
 }
 
 .activeTick {
@@ -162,6 +152,14 @@
   bottom: 1px;
   color: #fff;
   display: none;
+  user-select: none;
+  /* z-index: 1; */
+}
+.activeTick path {
+  user-select: none;
+}
+.activeTick svg {
+  user-select: none;
 }
 .infoOptions::before {
   content: "";
@@ -173,9 +171,13 @@
   right: -1.9rem;
   bottom: -1.9rem;
   transform: rotate(135deg);
+  user-select: none;
 }
 .infoButton {
   margin-top: 48px;
+}
+.errorMessage {
+  color: rgb(255, 79, 79);
 }
 .infoSize {
 }

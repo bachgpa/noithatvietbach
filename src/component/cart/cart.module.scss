@@ -7,6 +7,7 @@
   flex: 0.4;
   position: relative;
   width: 100%;
+  min-width: 250px;
   box-sizing: border-box;
   margin: var(--button-margin);
 }
@@ -59,12 +60,12 @@
   padding: 0 8px;
   z-index: 2;
   // background-color: var(--primary);
-  border: 1px solid transparent;
   border-radius: 12px;
   background-color: #fff;
 }
 
 .cartContain.active {
+  border: 1px solid transparent;
   border-color: var(--border-color);
   opacity: 1;
   top: calc(100% + 12px);

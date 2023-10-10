@@ -32,13 +32,12 @@ function CartBtn() {
       ).length;
 
       if (num !== cartNumber) {
-        console.log("sua cartNumber");
         setCartNumber(num);
         setCartItems(
           JSON.parse(localStorage.getItem("cartItems"))
         );
       }
-      console.log("clicked at cart component");
+      // console.log("clicked at cart component");
     };
     handleStorageChange();
     document.addEventListener("click", handleStorageChange);
@@ -53,7 +52,7 @@ function CartBtn() {
   function handleCartItems(cartItems) {
     return cartItems.reduce((result, item) => {
       const existingItem = result.find(
-        (i) => i.id === item.id
+        (i) => i.idClassified === item.idClassified
       );
 
       if (existingItem) {
@@ -73,6 +72,7 @@ function CartBtn() {
       onMouseLeave={setFalse}
     >
       <Button
+        key={"éo hiểu"}
         Tag={"button"}
         Type={"primary borrad"}
         Size={"medium"}
@@ -93,7 +93,10 @@ function CartBtn() {
         {filteredCartItems.map(function (cartItem, index) {
           if (index < 5) {
             return (
-              <div className={clsx(style.cartContainer)}>
+              <div
+                key={index}
+                className={clsx(style.cartContainer)}
+              >
                 <Link
                   to={`/products/${cartItem.id}`}
                   onClick={setFalse}
@@ -122,7 +125,7 @@ function CartBtn() {
               </div>
             );
           }
-          return null; // Thêm dòng này
+          return null;
         })}
         <div
           onClick={setFalse}
@@ -130,6 +133,7 @@ function CartBtn() {
         >
           <p>{cartNumber} sản phẩm trong giỏ hàng</p>
           <Link
+            key={"ủa alo"}
             className={clsx(style.linkToCart)}
             to={"/cart"}
           >

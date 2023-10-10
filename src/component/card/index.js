@@ -2,19 +2,24 @@ import clsx from "clsx";
 import { Link } from "react-router-dom";
 import Button from "../button";
 import style from "./card.module.scss";
-import React, { useContext, useRef } from "react";
-import { CardContext } from "../../page/home";
+import React, { useContext } from "react";
+import { CardContext } from "../../App";
 
 function Card({ props, css }) {
-  const cardBtnRef = useRef(null);
-  // distructuring de lay ra setSelectedCard
+  // const { selectedCard } = useContext(CardContext);
   const { setSelectedCard } = useContext(CardContext);
-
+  // console.log("Cardcomponent, props:", props);
+  // console.log(
+  //   "Cardcomponent, setSelectedCard:",
+  //   setSelectedCard
+  // );
+  // console.log("cardcomponent, selectedCard:", selectedCard);
+  // const cardBtnRef = useRef(null);
   function handleClick(e) {
     e.preventDefault();
+    e.stopPropagation();
     setSelectedCard(props);
   }
-
   return (
     <div
       className={clsx(
@@ -30,17 +35,17 @@ function Card({ props, css }) {
           className={clsx(css.cardImg)}
           alt="anh san pham"
           src={props.image}
-        ></img>
+        />
         <div className={clsx(style.btnCardContainer)}>
           <Button
             Children={"Xem nhanh"}
-            ref={cardBtnRef}
-            Tag={"Link"}
+            // ref={cardBtnRef}
+            // Tag={Link}
             Type={"primary"}
             Size={"medium"}
             className={clsx(style.BtnCard)}
             onClick={handleClick}
-          ></Button>
+          />
         </div>
       </Link>
       <div className={clsx(css.cardInfo)}>

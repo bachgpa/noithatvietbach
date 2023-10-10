@@ -1,0 +1,108 @@
+.footerAdjPosition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--text-color);
+  color: #fff;
+  padding-bottom: 60px;
+  margin-top: 48px;
+}
+.gridContainer {
+  width: 100%;
+  margin: auto;
+}
+.footerContainer {
+  margin: auto;
+  display: flex;
+  width: 100%;
+  /* width: 100%;
+  max-width: 1200px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); */
+}
+.rowMargin {
+  margin: 0 12px;
+  display: flex;
+}
+.footerInfoMargin {
+  padding: 0 12px;
+  box-sizing: border-box;
+  position: relative;
+}
+.footerInfo {
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+}
+/* .footerInfo:first-child {
+  margin-left: -12px;
+}
+.footerInfo:last-child {
+  margin-right: -12px;
+} */
+.footerInfoTitle {
+  font-weight: 600;
+  /* text-align: center; */
+}
+.footerInfoDetail {
+  /* text-align: justify; */
+}
+.ContainerBtnCtn {
+  cursor: pointer;
+  &:hover > .btnContainer {
+    width: 100%;
+  }
+}
+.btnContainer {
+  width: 90%;
+  width: 68px;
+  height: 68px;
+  /* border: 2px solid transparent; */
+  border-radius: 50%;
+  border-radius: 88px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  background-color: transparent;
+  transition: all 0.4s;
+  &:hover {
+    /* border-color: var(--primary); */
+  }
+}
+.footerBtn {
+  padding: 0;
+}
+.logoFB {
+  object-fit: contain;
+  background-color: #fff;
+  /* width: 100%; */
+  height: 100%;
+}
+.logoInsta {
+  object-fit: contain;
+  background-color: #fff;
+  /* width: 100%; */
+  height: 100%;
+}
+.logoZalo {
+  object-fit: contain;
+  background-color: #fff;
+  /* width: 100%; */
+  height: 100%;
+}
+.infoMap {
+  /* width: auto; */
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  height: 300px;
+}
+.footerOfFooter {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-top: 100px;
+}

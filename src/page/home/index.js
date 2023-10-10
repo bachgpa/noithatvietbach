@@ -4,24 +4,25 @@ import HomeCarousel from "../../component/homeCarousel";
 import Category from "../../component/category";
 import HomeCarouselList from "../../assets/homeCarousel";
 import FloatInfo from "../../component/floatInfo";
-import React, { createContext, useState } from "react";
+import React from "react";
 
-export const CardContext = createContext();
+// export const CardContext = createContext();
 
 function Home() {
   //state thay doi du lieu
-  const [selectedCard, setSelectedCard] = useState(null);
+  // const [selectedCard, setSelectedCard] = useState(null);
 
   return (
     <div className={clsx(style.home)}>
       <HomeCarousel items={HomeCarouselList} />
-
-      <CardContext.Provider
+      {/* CardContext truyền dữ liệu card */}
+      {/* card được gửi từ card trong category đến floatInfo */}
+      {/* <CardContext.Provider
         value={{ selectedCard, setSelectedCard }}
-      >
-        <Category />
-        <FloatInfo />
-      </CardContext.Provider>
+      > */}
+      <Category />
+      <FloatInfo />
+      {/* </CardContext.Provider> */}
     </div>
   );
 }

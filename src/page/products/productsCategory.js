@@ -1,7 +1,7 @@
 let productsCategoryDemo = [
   {
     id: 1,
-    name: "Bàn trà gỗ sồi",
+    name: `Bàn trà gỗ sồi 1`,
     category: "Bàn trà",
     price: 1500000,
     description:
@@ -16,10 +16,20 @@ let productsCategoryDemo = [
       require("../../assets/products/Ban-tra-52-500x500.webp"),
       require("../../assets/products/banTra.jpg"),
     ],
+    detail: {
+      brand: "Việt Bách",
+      insuarrance: "Bảo hành nhà sản xuẩt",
+      insuarranceDate: "6 tháng",
+      from: "Việt Nam",
+      material: "mặt gỗ, chân sắt",
+      address: "Số 77 đường 49 phố A, Quận B, thành phố C",
+      kho: 1998,
+      storageAddress: "thành phố C",
+    },
   },
   {
     id: 2,
-    name: "Ghế sofa da thật",
+    name: "Ghế sofa da thật 2",
     category: "Ghế sofa",
     price: 3500000,
     description: "Ghế sofa da thật, êm ái và thoải mái.",
@@ -33,6 +43,16 @@ let productsCategoryDemo = [
       require("../../assets/products/Ban-tra-52-500x500.webp"),
       require("../../assets/products/banTra.jpg"),
     ],
+    detail: {
+      brand: "Việt Bách",
+      insuarrance: "Bảo hành nhà sản xuẩt",
+      insuarranceDate: "6 tháng",
+      from: "Việt Nam",
+      material: "mặt gỗ, chân sắt",
+      address: "Số 77 đường 49 phố A, Quận B, thành phố C",
+      kho: 1998,
+      storageAddress: "thành phố C",
+    },
   },
 ];
 
@@ -61,10 +81,14 @@ for (var a = 1; a < 100; a++) {
         require("../../assets/products/Ban-tra-52-500x500.webp"),
       ],
       details: {
+        brand: "Việt Bách",
+        insuarrance: "Bảo hành nhà sản xuẩt",
+        insuarranceDate: "6 tháng",
+        from: "Việt Nam",
         address:
           " Số 7749, đường A, phường B, quận C, thành phố D",
         materials:
-          "Gỗ công nghiệp chất lượng nhập khẩu, sắt Hòa Phát",
+          "Gỗ công nghiệp nhập khẩu Mỹ, sắt Hòa Phát",
         size: "nhỏ: 3m x 1m x 0.5m (dài x rộng x cao), vừa: 3m x 1m x 0.5m (dài x rộng x cao), lớn: 3m x 1m x 0.5m (dài x rộng x cao)",
         sendFrom: "thành phố D",
         storage: 123456,
@@ -72,7 +96,7 @@ for (var a = 1; a < 100; a++) {
     });
   } else {
     productsCategoryDemo.push({
-      id: `${a + 2}`,
+      id: a + 2,
       name: `gì đó đá gỗ sồi cô đơn trên sofa ${a}`,
       category: "Chiếu",
       price: 1500000000000000,
@@ -92,6 +116,10 @@ for (var a = 1; a < 100; a++) {
         require("../../assets/products/Ban-tra-52-500x500.webp"),
       ],
       details: {
+        brand: "Việt Bách",
+        insuarrance: "Bảo hành nhà sản xuẩt",
+        insuarranceDate: "6 tháng",
+        from: "Việt Nam",
         address:
           " Số 7749, đường A, phường B, quận C, thành phố D",
         materials:

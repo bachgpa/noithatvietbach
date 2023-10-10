@@ -4,6 +4,7 @@ import style from "./DefaultLayout.module.scss";
 import Header from "../../component/header";
 import { SearchInput } from "../../component/header/SearchInput";
 import { CartBtn } from "../../component/cart";
+import Footer from "../../component/footer";
 
 function DefaultLayout({ children }) {
   return (
@@ -19,6 +20,7 @@ function DefaultLayout({ children }) {
             {children}
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );

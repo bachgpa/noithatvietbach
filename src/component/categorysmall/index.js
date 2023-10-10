@@ -6,13 +6,17 @@ import Button from "../button";
 import productsCategory from "../../page/products/productsCategory";
 import { useState } from "react";
 
+//đang gặp lỗi không render được
+//smallCategory trong productDetail
+
 function CategorySmall({ category }) {
   const [page, setPage] = useState(1);
   const [products, setProducts] = useState([]);
-
   useEffect(() => {
     let a = (page - 1) * 10;
     let b = a + 10;
+    // gán biến newpage = mảng prdctgr đã lọc ra những sp
+    // cùng category trong thứ tự từ a đến b
     let newPage = productsCategory
       .filter((x) => x.category === category)
       .slice(a, b);
@@ -27,7 +31,8 @@ function CategorySmall({ category }) {
       </div>
       <div className={clsx(style.categoryList)}>
         {
-          //  map qua danh sách sản phẩm có danh mục trùng với danh mục hiện có
+          //  map qua danh sách sản phẩm có danh mục
+          //  trùng với danh mục hiện có
           products.map((product) => {
             return (
               <Card

@@ -8,6 +8,7 @@
   width: 100%;
   border: none;
   outline: none;
+  padding: 0;
   &:hover {
     cursor: pointer;
     filter: brightness(108%);
@@ -16,7 +17,9 @@
     filter: brightness(100%);
   }
 }
-
+.bgcWhite {
+  background-color: #fff;
+}
 .primary {
   background-color: var(--primary);
   color: #fff;

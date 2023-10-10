@@ -4,7 +4,7 @@ import style2 from "../cart/cart.module.scss";
 
 function Button({
   Tag,
-  Type,
+  Type = "",
   Size,
   Classes,
   ClassForBtn,
@@ -12,6 +12,9 @@ function Button({
   ...passProps
 }) {
   let Comp = Tag || "button";
+  // if (!Type) {
+  //   Type = "";
+  // }
   const typeList = Type.split(" ");
 
   return (
