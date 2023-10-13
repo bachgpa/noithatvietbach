@@ -6,15 +6,7 @@ import React, { useContext } from "react";
 import { CardContext } from "../../App";
 
 function Card({ props, css }) {
-  // const { selectedCard } = useContext(CardContext);
   const { setSelectedCard } = useContext(CardContext);
-  // console.log("Cardcomponent, props:", props);
-  // console.log(
-  //   "Cardcomponent, setSelectedCard:",
-  //   setSelectedCard
-  // );
-  // console.log("cardcomponent, selectedCard:", selectedCard);
-  // const cardBtnRef = useRef(null);
   function handleClick(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -39,8 +31,6 @@ function Card({ props, css }) {
         <div className={clsx(style.btnCardContainer)}>
           <Button
             Children={"Xem nhanh"}
-            // ref={cardBtnRef}
-            // Tag={Link}
             Type={"primary"}
             Size={"medium"}
             className={clsx(style.BtnCard)}

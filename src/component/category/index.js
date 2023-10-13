@@ -14,7 +14,7 @@ function Category() {
   const categories = [
     ...new Set(products.map((product) => product.category)),
   ];
-  console.log(categories);
+  // console.log(categories);
 
   return (
     //categories container

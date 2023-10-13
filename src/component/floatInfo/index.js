@@ -7,8 +7,6 @@ import { useContext, useEffect, useRef } from "react";
 function FloatInfo() {
   const { selectedCard } = useContext(CardContext);
   const { setSelectedCard } = useContext(CardContext);
-  console.log("Float selectedcard", selectedCard);
-  console.log("Float sételectedcard", setSelectedCard);
   const floatRef = useRef(null);
   const bgFloatRef = useRef(null);
 

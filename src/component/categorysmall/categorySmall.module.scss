@@ -4,7 +4,6 @@
   flex-direction: column;
 }
 .singleCategory {
-  // overflow: hidden;
   margin-top: 40px;
   margin-top: 40px;
   position: relative;
@@ -17,7 +16,6 @@
   transform: translateX(50%);
   border-bottom: 1px dotted var(--border-color);
   width: 480px;
-  // height: 1px;
   background-color: #ccc;
   color: #ccc;
 }
@@ -75,8 +73,9 @@
   object-fit: cover;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  // margin-bottom: 12px;
 }
+
+// CSS OF CARD COMPONENT
 .cardInfo {
   display: flex;
   flex-direction: column;

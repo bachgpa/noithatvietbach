@@ -137,7 +137,7 @@ function ProductsDetail() {
         className={clsx(style.commentlPart, style.mainPart)}
       >
         <h4 className={clsx(style.detailTitle)}>
-          MO TẢ SẢN PHẨM
+          Mô TẢ SẢN PHẨM
         </h4>
         <div className={clsx(style.detailInfo)}>
           <div
@@ -159,12 +159,12 @@ function ProductsDetail() {
               style.size
             )}
           >
-            <span className={clsx(style.detailInfoTitle)}>
+            <div className={clsx(style.detailInfoTitle)}>
               Kích cỡ:
-            </span>
-            <span className={clsx(style.detailInfoDesc)}>
+            </div>
+            <div className={clsx(style.detailInfoDesc)}>
               {currentProduct.details.size}
-            </span>
+            </div>
           </div>
           <div
             className={clsx(

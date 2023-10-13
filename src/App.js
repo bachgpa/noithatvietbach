@@ -28,7 +28,6 @@ function App() {
               {publicRoutes.map((route, index) => {
                 var Layout;
                 const Page = route.component;
-                console.log("app.js:", Page);
                 switch (route.layout) {
                   case DefaultLayout:
                     // console.log("default Layout");

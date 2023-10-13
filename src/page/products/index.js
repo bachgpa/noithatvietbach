@@ -1,9 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import clsx from "clsx";
 import style from "./productsCatedory.module.scss";
 import { HandleSearchInfo } from "../../component/header/SearchInput";
 import { useContext, useEffect, useState } from "react";
 import { categoryContext } from "../../App";
+import Card from "../../component/card";
+import FloatInfo from "../../component/floatInfo";
 
 // function hiển thị kết quả tìm kiếm, được export ra ngoài để dùng
 
@@ -23,46 +25,18 @@ function Products() {
     productsCategory,
     searchQuery || ""
   );
-  function handleProductClick() {
-    setSearchQuery("");
-  }
-  console.log(filteredProducts);
   return (
     <div className={clsx(style.productsCategory)}>
       <div
         className={clsx(style.searchNoti)}
-      >{`kết quả tìm kiếm cho "${searchQuery}"`}</div>
-      <div className={clsx(style.productsContainer)}>
+      >{`Kết quả tìm kiếm cho "${searchQuery}"`}</div>
+      {/*  */}
+      <div className={clsx(style.cardsContainer)}>
         {filteredProducts.map((product) => {
-          return (
-            <Link
-              className={clsx(style.productItem)}
-              to={`/products/${product.id}`}
-              onClick={handleProductClick}
-            >
-              <img
-                className={clsx(style.productImg)}
-                alt="anh san pham"
-                src={product.image}
-              />
-              {console.log(product.image)}
-              <div className={clsx(style.productDetail)}>
-                <div className={clsx(style.productTitle)}>
-                  <div className={clsx(style.productName)}>
-                    {product.name}
-                  </div>
-                  <div className={clsx(style.productDes)}>
-                    {product.description}
-                  </div>
-                </div>
-                <div className={clsx(style.productPrice)}>
-                  {product.price}
-                </div>
-              </div>
-            </Link>
-          );
+          return <Card props={product} css={style} />;
         })}
       </div>
+      <FloatInfo />
     </div>
   );
 }
