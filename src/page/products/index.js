@@ -1,9 +1,10 @@
 import { useLocation } from "react-router-dom";
 import clsx from "clsx";
-import style from "./productsCatedory.module.scss";
 import { HandleSearchInfo } from "../../component/header/SearchInput";
 import { useContext, useEffect, useState } from "react";
+
 import { categoryContext } from "../../App";
+import style from "./productsCatedory.module.scss";
 import Card from "../../component/card";
 import FloatInfo from "../../component/floatInfo";
 
@@ -15,16 +16,20 @@ function Products() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const [searchQuery, setSearchQuery] = useState("");
-
   const takeQuery = searchParams.get("search");
+
   // gán lại giá trị cho searchQuery mỗi lẫn render
   useEffect(() => {
     setSearchQuery(takeQuery);
   }, [takeQuery]);
+
+  // lọc các sản phẳm với list sp và từ khóa tìm kiếm
   const filteredProducts = HandleSearchInfo(
     productsCategory,
     searchQuery || ""
   );
+
+  //render kết quả tìm kiếm từ search bar
   return (
     <div className={clsx(style.productsCategory)}>
       <div

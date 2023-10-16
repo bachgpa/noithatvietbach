@@ -63,7 +63,7 @@ function Footer({ ojb }) {
 
           <div className="footerInfo Contact l-2 m-6 c-12">
             <div className="footerInfoMargin">
-              <h3 className="footerInfoTitle">
+              <h3 className="footerInfoTitle contact">
                 Liên hệ với chúng tôi
               </h3>
               <div className="ContainerBtnCtn">
@@ -119,7 +119,9 @@ function Footer({ ojb }) {
 
           <div className="footerInfo map l-4 m-6 c-12">
             <div className="footerInfoMargin">
-              <h3 className="footerInfoTitle">Studio</h3>
+              <h3 className="footerInfoTitle">
+                văn phòng Hà Nội
+              </h3>
               <iframe
                 title="unique"
                 className="infoMap"

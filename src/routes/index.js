@@ -2,8 +2,7 @@ import Home from "../page/home";
 import Cart from "../page/cart";
 import Products from "../page/products";
 import ProductsDetail from "../page/productsDetail";
-// import productsCategory from "../page/products/productsCategory";
-
+import Intro from "../page/intro";
 // public routes
 
 const publicRoutes = [
@@ -23,11 +22,11 @@ const publicRoutes = [
     component: ProductsDetail,
     layout: "DefaultLayout",
   },
-  // {
-  //   path: "/category",
-  //   component: productsCategory,
-  //   layout: "DefaultLayout",
-  // },
+  {
+    path: "/intro",
+    component: Intro,
+    layout: "DefaultLayout",
+  },
 ];
 
 const privateRoutes = [];

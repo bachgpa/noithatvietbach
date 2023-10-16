@@ -13,6 +13,7 @@ const arrayCategory = productsCategory.reduce(
     const existingCat = result.find(
       (i) => i.category === productItem.category
     );
+    // nếu chưa có thì đẩy mảng mới vào
     if (!existingCat) {
       result.push({
         category: productItem.category,
@@ -32,7 +33,7 @@ export const MenuItemlist = [
   {
     engTitle: "About Us",
     vieTitle: "Giới thiệu",
-    url: "/",
+    url: "/intro",
     icon: faCircleInfo,
   },
   {
@@ -42,39 +43,17 @@ export const MenuItemlist = [
     icon: faFolderClosed,
     changedIcon: faFolderOpen,
     submenu: arrayCategory,
-    // submenu: [
-    //   {
-    //     engTitle: "title1",
-    //     vieTitle: "vieTitle1",
-    //     url: "/",
-    //   },
-    //   {
-    //     engTitle: "title2",
-    //     vieTitle: "vieTitle2",
-    //     url: "/",
-    //   },
-    //   {
-    //     engTitle: "title3",
-    //     vieTitle: "vieTitle3",
-    //     url: "/",
-    //   },
-    //   {
-    //     engTitle: "title4",
-    //     vieTitle: "vieTitle4",
-    //     url: "/",
-    //   },
-    // ],
   },
   {
     engTitle: "News",
     vieTitle: "Tin tức",
-    url: "/",
+    url: "/news",
     icon: faNewspaper,
   },
   {
     engTitle: "Contact",
     vieTitle: "Liên hệ",
-    url: "/",
+    url: "contact",
     icon: faPhone,
   },
 ];

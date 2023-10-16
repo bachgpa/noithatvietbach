@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 // import style from "./Header.module.scss";
 import style from "./Header2.module.scss";
 import Dropdown from "./Dropdown";
+import { Link } from "react-router-dom";
 
 function MenuItems({ items }) {
   const [dropdown, setDropdown] = useState(false);
@@ -67,16 +68,16 @@ function MenuItems({ items }) {
         </>
       ) : (
         // không có submenu
-        <a
+        <Link
           className={clsx(style.headerOptionLink)}
-          href={items.url}
+          to={items.url}
         >
           <FontAwesomeIcon
             className={clsx(style.headerIcon)}
             icon={items.icon}
           />
           {items.engTitle}
-        </a>
+        </Link>
       )}
     </div>
   );
