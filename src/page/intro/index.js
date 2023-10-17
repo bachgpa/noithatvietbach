@@ -1,31 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./intro.css";
 import "../../assets/responsiveCss/grid.css";
 
 function Intro() {
-  const cards = document.querySelectorAll(
-    ".introContainer"
-  );
-  console.log(cards);
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle(
-          "show",
-          entry.isIntersecting
-        );
-        if (entry.isIntersecting) {
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.5,
-      // rootMargin: "400px",
-    }
-  );
-  cards.forEach((card) => {
-    observer.observe(card);
+  useEffect(() => {
+    const cards = document.querySelectorAll(
+      ".introContainer"
+    );
+    // tạo chức năng quan sát phần tử
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle(
+            "show",
+            entry.isIntersecting
+          );
+          if (entry.isIntersecting) {
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+    // đối với mỗi mảng trong cards, gọi observer.observe() lên nó
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+    return () => {
+      observer.disconnect();
+    };
   });
   return (
     <div className="grid ">

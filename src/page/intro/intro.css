@@ -24,23 +24,6 @@
 }
 .introDoYouKnow {
   position: relative;
-  /* .introImg {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  .introImg.show {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .introText {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  .introText.show {
-    opacity: 1;
-    transform: translateX(0);
-  } */
 }
 .introValue {
   flex-direction: column;

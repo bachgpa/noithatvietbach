@@ -13,7 +13,7 @@ import { createContext, useState } from "react";
 
 export const categoryContext = createContext();
 export const CardContext = createContext();
-
+export const observerContext = createContext();
 function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   return (
@@ -52,7 +52,7 @@ function App() {
                 );
               })}
               {/* <Route path="/" element={<Home />} />
-                <Route path="/cart" element={<Cart />} /> */}
+                  <Route path="/cart" element={<Cart />} /> */}
             </Routes>
           </div>
         </Router>
