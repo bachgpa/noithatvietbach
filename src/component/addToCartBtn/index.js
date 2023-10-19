@@ -43,8 +43,8 @@ function AddToCartBtn({ cardItem }) {
       messageElement.innerText = "";
 
       // thay color và size
-      itemFixed.color = color;
-      itemFixed.size = size;
+      itemFixed.colorClassified = color;
+      itemFixed.sizeClassified = size;
       itemFixed.idClassified =
         itemFixed.id + "/" + size + "/" + color;
 

@@ -1,0 +1,187 @@
+/* css lấy từ addToCartBtn */
+
+.adjNumber {
+  /* height: 48px; */
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.subtractBtn {
+  outline: none;
+  cursor: pointer;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 12px;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.8);
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+}
+
+.currentNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 34px;
+  height: 32px;
+  border-left: 0;
+  border-right: 0;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: text;
+  border-radius: 12;
+  -webkit-appearance: none;
+}
+
+.addBtn {
+  outline: none;
+  cursor: pointer;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 12px;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.8);
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+}
+/* end of addToCartBtn  */
+
+.cartComponent {
+}
+.cartSelected {
+}
+.headerSelected {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 12px;
+  border-radius: 8px;
+  padding: 12px;
+}
+.headerCheckboxContainer {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.headerCheckboxLabel {
+  text-transform: capitalize;
+}
+.checkbox {
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+}
+.headerCheckbox {
+}
+.headerParts {
+  width: 50%;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > div {
+    text-align: center;
+    border-radius: 8px;
+    padding: 4px;
+  }
+}
+.number {
+  width: 40%;
+  box-sizing: border-box;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.price {
+  width: 40%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete {
+  width: 20%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectedContainer {
+  margin: 12px;
+  border-radius: 8px;
+}
+.selectedItem {
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  border: 1px solid var(--border-color);
+  user-select: none;
+}
+.selectedItem.active {
+  background-color: var(--primary);
+  border: 1px solid transparent;
+}
+.selectedHead {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.singleCheckboxLabel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  user-select: none;
+  margin-right: 12px;
+}
+.itemName {
+  /* margin: 0 24px 0 12px; */
+  width: calc((100% - 120px - 12px - 12px) / 2);
+  margin-right: 12px;
+}
+.itemClassified {
+  width: calc((100% - 120px - 12px - 12px) / 2);
+  position: relative;
+  cursor: pointer;
+}
+.classifyAdjust {
+  display: none;
+  position: absolute;
+}
+.classifyAdjust.active {
+  display: block;
+}
+.itemImg {
+  width: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 12px;
+}
+.singleCheckbox {
+  display: block;
+  box-sizing: border-box;
+}
+.selectedTail {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+.suggestItems {
+}

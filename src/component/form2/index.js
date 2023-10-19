@@ -15,11 +15,15 @@
 </div>; */
 
 function Form({ formSelector }) {
+  // lấy phần tử cha, truyền vào element kích hoạt, selector của thẻ cha
   function getParent(element, selector) {
+    // vòng lặp while, khi có thể lấy phần tử cha của element
     while (element.parentElement) {
+      // nếu phần tử cha trùng selector thì return phần tử cha đó
       if (element.parentElement.matches(selector)) {
         return element.parentElement;
       }
+      // nếu không sẽ lọt xuống đây, element được gắn bằng cha nó và chạy lại
       element = element.parentElement;
     }
   }
