@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/noithatvietbach/static/css/main.59f4c6ab.css",
+    "main.js": "/noithatvietbach/static/js/main.4677be00.js",
+    "static/js/787.51782fd2.chunk.js": "/noithatvietbach/static/js/787.51782fd2.chunk.js",
+    "static/media/bao hanh.png": "/noithatvietbach/static/media/bao hanh.8ca62432e9e49e24dc59.png",
+    "static/media/quytrinh.png": "/noithatvietbach/static/media/quytrinh.dc0d572011c4175159ad.png",
+    "static/media/thiet-ke-noi-that-van-phong.jpg": "/noithatvietbach/static/media/thiet-ke-noi-that-van-phong.9b113c336e632c986497.jpg",
+    "static/media/thi-cong-noi-that-van-phong.jpg": "/noithatvietbach/static/media/thi-cong-noi-that-van-phong.e4a9585f31aa2eeaba1f.jpg",
+    "static/media/thiet-ke-noi-that-phong-giam-doc-2.jpg": "/noithatvietbach/static/media/thiet-ke-noi-that-phong-giam-doc-2.7b1127828eb1721a6708.jpg",
+    "static/media/banTra.jpg": "/noithatvietbach/static/media/banTra.cb0c3417928472620228.jpg",
+    "static/media/Ban-tra-52-500x500.webp": "/noithatvietbach/static/media/Ban-tra-52-500x500.d1e7c10a1aaa8627b809.webp",
+    "static/media/cong-ty-thiet-ke-thi-cong-noi-that-van-phong-1.webp": "/noithatvietbach/static/media/cong-ty-thiet-ke-thi-cong-noi-that-van-phong-1.510ecdd628e9c3b54e68.webp",
+    "static/media/logo-zalo-02.jpg": "/noithatvietbach/static/media/logo-zalo-02.2eac4970e31f8ddba490.jpg",
+    "static/media/new-facebook-logo-2019.jpg": "/noithatvietbach/static/media/new-facebook-logo-2019.b600d56fdd26d4de1420.jpg",
+    "static/media/instagram-logo-social-media-sign-250nw-2265835221.webp": "/noithatvietbach/static/media/instagram-logo-social-media-sign-250nw-2265835221.7037d4d2384cc25bb2d5.webp",
+    "index.html": "/noithatvietbach/index.html",
+    "main.59f4c6ab.css.map": "/noithatvietbach/static/css/main.59f4c6ab.css.map",
+    "main.4677be00.js.map": "/noithatvietbach/static/js/main.4677be00.js.map",
+    "787.51782fd2.chunk.js.map": "/noithatvietbach/static/js/787.51782fd2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59f4c6ab.css",
+    "static/js/main.4677be00.js"
+  ]
+}
