@@ -91,6 +91,35 @@
   border-radius: 12px;
   font-size: 16px;
 }
+.adjustContainer {
+  display: flex;
+  /* flex-direction: column; */
+}
+.backBtn {
+  cursor: pointer;
+  overflow: hidden;
+  height: 38px;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-right: 12px;
+  display: flex;
+  flex: 1;
+}
+.confirmBtn {
+  cursor: pointer;
+  overflow: hidden;
+  height: 38px;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-left: 12px;
+  display: flex;
+  flex: 1;
+}
 
 .infoTitle {
   display: flex;

@@ -70,6 +70,8 @@ function FloatInfo() {
               <AddToCartBtn
                 onClick={handleAddCartClick}
                 cardItem={selectedCard}
+                typeBtn={"add"}
+                numSelect={true}
               />
             </div>
           </div>

@@ -31,7 +31,7 @@ function HandleSearchInfo(products, query) {
   if (filteredProducts.length === 0) {
     return (filteredProducts = [
       {
-        id: 1,
+        id: "404Error",
         name: "Không có kết quả tìm kiếm",
         category: "404 ERROR",
         price: "",
@@ -57,7 +57,7 @@ function SearchInput() {
   // LỌC KQ TÌM KIẾM
   function handleInputChange(e) {
     setQuery(e.target.value);
-    console.log(query);
+    // console.log(query);
 
     // lấy giá trị của VALUE render kết quả tìm kiếm
     const filteredProducts = HandleSearchInfo(
@@ -174,31 +174,67 @@ function SearchInput() {
       {showResults && (
         <div className={clsx(style.resultPart)}>
           {results.map((product) => {
-            return (
-              <Link
-                className={clsx(style.productLink)}
-                onClick={handleProductClick}
-                keyid={product.id}
-                to={`/products/${product.id}`}
-              >
-                {/* {product.id} */}
-                <img
-                  className={clsx(style.productImg)}
-                  alt="anh san pham"
-                  src={product.image}
-                />
-                <div className={clsx(style.productInfo)}>
-                  <div
-                    className={clsx(style.productCategory)}
-                  >
-                    {product.category}
+            if (results.length > 1) {
+              return (
+                <Link
+                  className={clsx(style.productLink)}
+                  onClick={handleProductClick}
+                  keyid={product.id}
+                  to={`/products/${product.id}`}
+                >
+                  {/* {product.id} */}
+                  <img
+                    className={clsx(style.productImg)}
+                    alt="anh san pham"
+                    src={product.image}
+                  />
+                  <div className={clsx(style.productInfo)}>
+                    <div
+                      className={clsx(
+                        style.productCategory
+                      )}
+                    >
+                      {product.category}
+                    </div>
+                    <div
+                      className={clsx(style.productName)}
+                    >
+                      {product.name}
+                    </div>
                   </div>
-                  <div className={clsx(style.productName)}>
-                    {product.name}
+                </Link>
+              );
+            } else {
+              return (
+                <Link
+                  className={clsx(style.productLink)}
+                  onClick={handleProductClick}
+                  keyid={product.id}
+                  // to={`/products/${product.id}`}
+                >
+                  {/* {product.id} */}
+                  <img
+                    className={clsx(style.productImg)}
+                    alt="anh san pham"
+                    src={product.image}
+                  />
+                  <div className={clsx(style.productInfo)}>
+                    <div
+                      className={clsx(
+                        style.productCategory
+                      )}
+                    >
+                      {product.category}
+                    </div>
+                    <div
+                      className={clsx(style.productName)}
+                    >
+                      {product.name}
+                    </div>
                   </div>
-                </div>
-              </Link>
-            );
+                </Link>
+              );
+            }
           })}
         </div>
       )}

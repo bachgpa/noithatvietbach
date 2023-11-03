@@ -1,19 +1,27 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./addToCartBtn.css";
 import "../../assets/responsiveCss/grid.css";
 import Button from "../button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
-function AddToCartBtn({ cardItem }) {
-  const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
+function AddToCartBtn({ cardItem, typeBtn, numSelect }) {
+  const [color, setColor] = useState(
+    cardItem.colorClassified
+  );
+  const [size, setSize] = useState(cardItem.sizeClassified);
   const [num, setNum] = useState(1);
-  // lấy sp từ localStorage
-  const itemsToStorage =
-    JSON.parse(localStorage.getItem("cartItems")) || [];
+  const addBtnRef = useRef(null);
+  const closeAdjOptionRef = useRef(null);
+  // chép sp từ localStorage ra biến itemsToStorage
 
+  var itemsToStorage;
   // hàm xử lý lấy parent
+  useEffect(() => {
+    itemsToStorage =
+      // eslint-disable-next-line
+      JSON.parse(localStorage.getItem("cartItems")) || [];
+  }, [color, size, itemsToStorage, num]);
   function getParent(element, selector) {
     if (!element.matches(selector)) {
       while (element.parentElement) {
@@ -31,35 +39,99 @@ function AddToCartBtn({ cardItem }) {
   function handleAddToCart() {
     var messageElement =
       document.querySelector(".errorMessage");
+    // chép cardItem vào itemFixed
     var itemFixed = { ...cardItem };
+    // thay color và size của itemFixed
+    itemFixed.colorClassified = color;
+    itemFixed.sizeClassified = size;
+    itemFixed.idClassified =
+      itemFixed.id + "/" + size + "/" + color;
 
-    if (color === "" || size === "") {
+    // lấy vị trí của cardItem trong local
+    var sameIdIndex;
+    // console.log("itemstostorage:", itemsToStorage);
+    // console.log(
+    //   "itemstostorage.length",
+    //   itemsToStorage.length
+    // );
+    if (itemsToStorage && itemsToStorage.length) {
+      sameIdIndex = JSON.parse(
+        localStorage.getItem("cartItems")
+      ).findIndex((i) => {
+        return i.idClassified === itemFixed.idClassified;
+      });
+    } else {
+      sameIdIndex = -1;
+    }
+    if (
+      color === "" ||
+      color === null ||
+      color === undefined ||
+      size === "" ||
+      size === null ||
+      size === undefined
+    ) {
       messageElement.innerText =
         "Vui lòng chọn phân loại sản phẩm";
       document
         .querySelector(".adjOption")
         .classList.add("invalid");
     } else {
+      // khi đã chọn đủ cả size và color
       messageElement.innerText = "";
 
-      // thay color và size
-      itemFixed.colorClassified = color;
-      itemFixed.sizeClassified = size;
-      itemFixed.idClassified =
-        itemFixed.id + "/" + size + "/" + color;
+      //có numselect thì
+      if (numSelect) {
+        itemFixed.quantity = num;
+        // không có sản phẩm trùng idclassified
+        if (sameIdIndex === -1) {
+          // GÁN LẠI LOCALSTORAGE
+          itemsToStorage.push(itemFixed);
+          localStorage.setItem(
+            "cartItems",
+            JSON.stringify(itemsToStorage)
+          );
+        }
+        // có sp trùng idclassified
+        else {
+          // cộng quantity
+          itemsToStorage[sameIdIndex].quantity +=
+            itemFixed.quantity;
+          // lấy sp đã có, đã sửa ra và đẩy xuống cuối Array
+          const [existingProduct] = itemsToStorage.splice(
+            sameIdIndex,
+            1
+          );
+          itemsToStorage.push(existingProduct);
+          localStorage.setItem(
+            "cartItems",
+            JSON.stringify(itemsToStorage)
+          );
+        }
+      } else {
+        // sửa color, size, id Classified của phẩn tử trong array
+        console.log(
+          "không có num, đang sửa ptu trong local"
+        );
+        console.log(itemsToStorage);
+        itemsToStorage[sameIdIndex].colorClassified = color;
 
-      // cái gì đấy không nhớ
-      for (let i = 0; i < num; i++) {
-        itemsToStorage.push(itemFixed);
+        itemsToStorage[sameIdIndex].sizeClassified = size;
+        if (color && size) {
+          itemsToStorage[sameIdIndex].idClassified =
+            itemFixed.id + "/" + size + "/" + color;
+        }
+        // gán lại local
+        localStorage.setItem(
+          "cartItems",
+          JSON.stringify(itemsToStorage)
+        );
+        handleCloseElement();
       }
-
-      localStorage.setItem(
-        "cartItems",
-        JSON.stringify([...itemsToStorage])
-      );
+      // if (!numSelect) {
+      // }
     }
-    console.log(itemFixed);
-    console.log(num);
+    // console.log(num);
   }
   function subTractHandle() {
     num > 1 && setNum(num - 1);
@@ -94,13 +166,11 @@ function AddToCartBtn({ cardItem }) {
         var colorOption =
           selectedOption.getAttribute("value");
         setColor(colorOption);
-        console.log(colorOption);
       }
       if (valueType === "size") {
         var sizeOption =
           selectedOption.getAttribute("value");
         setSize(sizeOption);
-        console.log(sizeOption);
       }
       // nếu option đã được chọn
     } else {
@@ -114,8 +184,18 @@ function AddToCartBtn({ cardItem }) {
       }
     }
   }
+  // hủy setActive của thẻ cha bên CartPage
+  function handleCloseElement() {
+    const closeBtn = document.querySelector(".backBtn");
+    const toggleActive = getParent(
+      closeBtn,
+      ".itemClassifiedContainer"
+    );
+    toggleActive.classList.remove("active");
+  }
+  // function handleConfirmOption(e) {}
   return (
-    <div className="AddBtnContainer">
+    <div className="AddBtnContainer" ref={addBtnRef}>
       <div className="infoAddBtnContainer">
         <div className="adjOption">
           {/* color  */}
@@ -129,7 +209,11 @@ function AddToCartBtn({ cardItem }) {
                     type="color"
                     key={color}
                     value={color}
-                    className="colorOfProduct infoOptions"
+                    className={`colorOfProduct infoOptions ${
+                      cardItem.colorClassified === color
+                        ? "active"
+                        : ""
+                    }`}
                     onClick={handleOptions}
                   >
                     {color}
@@ -153,7 +237,11 @@ function AddToCartBtn({ cardItem }) {
                     key={size}
                     value={size}
                     onClick={handleOptions}
-                    className="sizeOfProduct infoOptions"
+                    className={`sizeOfProduct infoOptions ${
+                      cardItem.sizeClassified === size
+                        ? "active"
+                        : ""
+                    }`}
                   >
                     {size}
                     <div className="activeTick">
@@ -166,33 +254,59 @@ function AddToCartBtn({ cardItem }) {
           </div>
 
           {/* adjust number  */}
-          <div className="adjNumber">
-            <button
-              className="subtractBtn"
-              onClick={subTractHandle}
-            >
-              -
-            </button>
-            <div className="currentNumber">{num}</div>
-            <button className="addBtn" onClick={plusHandle}>
-              +
-            </button>
-            <div className="storageInfo">
-              100 sản phẩm có sẵn
+          {numSelect && (
+            <div className="adjNumber">
+              <button
+                className="subtractBtn"
+                onClick={subTractHandle}
+              >
+                -
+              </button>
+              <div className="currentNumber">{num}</div>
+              <button
+                className="addBtn"
+                onClick={plusHandle}
+              >
+                +
+              </button>
+              <div className="storageInfo">
+                100 sản phẩm có sẵn
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="errorMessage"></div>
         </div>
       </div>
-      {/* add btn  */}
-      <div className="addToCartBtn">
-        <Button
-          Type={"primary"}
-          Children={"Add to Cart"}
-          onClick={handleAddToCart}
-        />
-      </div>
+      {/*  btn  */}
+      {(typeBtn === "add" && (
+        <div className="addToCartBtn">
+          <Button
+            Type={"primary"}
+            Children={"Add to Cart"}
+            onClick={handleAddToCart}
+          />
+        </div>
+      )) ||
+        (typeBtn === "adj" && (
+          <div className="adjustContainer">
+            <div className="backBtn">
+              <Button
+                Type={"bgcGrey"}
+                Children={"ahihai"}
+                onClick={handleCloseElement}
+                ref={closeAdjOptionRef}
+              />
+            </div>
+            <div className="confirmBtn">
+              <Button
+                Type={"primary"}
+                Children={"huhuh"}
+                onClick={handleAddToCart}
+              />
+            </div>
+          </div>
+        ))}
     </div>
   );
 }

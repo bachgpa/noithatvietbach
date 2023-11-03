@@ -2,6 +2,8 @@
 import Button from "../button";
 import "./footer.css";
 
+// footer chưa dính ở dưới cùng
+
 function Footer({ ojb }) {
   return (
     <div className="footerAdjPosition ">

@@ -1,7 +1,7 @@
 let productsCategoryDemo = [
   {
     id: 1,
-    name: `Bàn trà gỗ sồi 1`,
+    name: `Bàn uống trà gỗ sồi 1`,
     category: "Bàn trà",
     price: 1500002,
     description:
@@ -32,7 +32,7 @@ let productsCategoryDemo = [
   },
   {
     id: 2,
-    name: "Ghế sofa da thật 2",
+    name: "Ghế êm sofa da thật 2",
     category: "Ghế sofa",
     price: 3500002,
     description: "Ghế sofa da thật, êm ái và thoải mái.",
@@ -67,6 +67,7 @@ for (var a = 1; a < 100; a++) {
     console.log("so le a = ", a);
     productsCategoryDemo.push({
       id: a + 2,
+      idClassified: "",
       // id: `${a + 2}`,
       name: `Bàn gỗ sồi cô đơn trên sofa ${a}`,
       category: "Bàn trà",
@@ -76,7 +77,9 @@ for (var a = 1; a < 100; a++) {
       image: require("../../assets/products/Ban-tra-52-500x500.webp"),
       number: 1998,
       color: ["black", "brown", "green", "pink"],
+      colorClassified: "",
       size: ["s", "m", "l", "xl", "xxl"],
+      sizeClassified: "",
       carousel: [
         require("../../assets/products/Ban-tra-52-500x500.webp"),
         require("../../assets/products/sofaSquare.jpg"),

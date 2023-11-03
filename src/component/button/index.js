@@ -12,9 +12,6 @@ function Button({
   ...passProps
 }) {
   let Comp = Tag || "button";
-  // if (!Type) {
-  //   Type = "";
-  // }
   const typeList = Type.split(" ");
 
   return (
@@ -25,7 +22,6 @@ function Button({
         typeList.map((type) => style1[type]),
         style1[Size],
         style2[Classes]
-        // classReceive[ClassForBtn]
       )}
     >
       {Children}

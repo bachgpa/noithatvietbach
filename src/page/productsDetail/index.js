@@ -50,7 +50,11 @@ function ProductsDetail() {
                 )}
               >
                 <div className={clsx(style.infoDetail)}>
-                  <AddToCartBtn cardItem={currentProduct} />
+                  <AddToCartBtn
+                    cardItem={currentProduct}
+                    numSelect={true}
+                    typeBtn={"add"}
+                  />
                 </div>
               </div>
             </div>

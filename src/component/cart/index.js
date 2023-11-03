@@ -21,16 +21,23 @@ function CartBtn() {
   );
   // console.log(cartItems);
   const [cartNumber, setCartNumber] = useState(0);
-  var filteredCartItems =
-    handleCartItems(cartItems).reverse();
-  // console.log(filteredCartItems);
+  var filteredCartItems = [...cartItems].reverse();
+  // var filteredCartItems = handleCartItems(cartItems).reverse();
 
   useEffect(() => {
     const handleStorageChange = () => {
-      const num = (
-        JSON.parse(localStorage.getItem("cartItems")) || []
-      ).length;
-
+      const reGetCartItems = JSON.parse(
+        localStorage.getItem("cartItems")
+      );
+      var num;
+      if (reGetCartItems) {
+        num = reGetCartItems.reduce((sum, item) => {
+          sum += item.quantity;
+          return sum;
+        }, 0);
+      } else {
+        num = 0;
+      }
       if (num !== cartNumber) {
         setCartNumber(num);
         setCartItems(
@@ -47,23 +54,23 @@ function CartBtn() {
         handleStorageChange
       );
     };
-  }, [cartNumber]);
+  }, [cartNumber, cartItems]);
 
-  function handleCartItems(cartItems) {
-    return cartItems.reduce((result, item) => {
-      const existingItem = result.find(
-        (i) => i.idClassified === item.idClassified
-      );
+  // function handleCartItems(cartItems) {
+  //   return cartItems.reduce((result, item) => {
+  //     const existingItem = result.find(
+  //       (i) => i.idClassified === item.idClassified
+  //     );
 
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        result.push({ ...item, quantity: 1 });
-      }
+  //     if (existingItem) {
+  //       existingItem.quantity += 1;
+  //     } else {
+  //       result.push({ ...item, quantity: 1 });
+  //     }
 
-      return result;
-    }, []);
-  }
+  //     return result;
+  //   }, []);
+  // }
 
   return (
     <div
