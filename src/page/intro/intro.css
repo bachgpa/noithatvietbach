@@ -102,18 +102,18 @@
   /* padding: 12px; */
   border: 1px solid var(--primary);
   border-radius: 8px;
-  .introTitle {
-    display: flex;
-    align-items: center;
-    margin: 12px 0;
-  }
-  .introDetail {
-    margin: 12px;
-    display: flex;
-    align-items: center;
-  }
-  .introImg {
-    margin: 12px 0;
-    width: 60%;
-  }
+}
+.introWork .introTitle {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+}
+.introWork .introDetail {
+  margin: 12px;
+  display: flex;
+  align-items: center;
+}
+.introWork .introImg {
+  margin: 12px 0;
+  width: 60%;
 }

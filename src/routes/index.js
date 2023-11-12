@@ -6,7 +6,11 @@ import Intro from "../page/intro";
 // public routes
 
 const publicRoutes = [
-  { path: "/", component: Home, layout: "DefaultLayout" },
+  {
+    path: "/noithatvietbach/",
+    component: Home,
+    layout: "DefaultLayout",
+  },
   {
     path: "/cart",
     component: Cart,

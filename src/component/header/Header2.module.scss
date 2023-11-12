@@ -1,18 +1,40 @@
 :root {
-  --header-width: 280px;
+  --header-width: 200px;
   --font-family: "Times New Roman", Times, serif;
+  //   --font-family: "Gill Sans", "Gill Sans MT", Calibri,
+  //     "Trebuchet MS", sans-serif;
 }
 
 .Header {
   display: flex;
   // width: 80vw;
-  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   z-index: 1;
+  font-family: var(--font-family);
 }
 
+.coverPart {
+  background-color: #00000080;
+  z-index: 99;
+  display: block;
+  transform: translateX(-100%);
+  transition: ease 0.2s;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: auto;
+}
+.active .coverPart {
+  display: block;
+  left: var(--header-width);
+  opacity: 1;
+  transform: translateX(0);
+}
 .topHeader {
   display: flex;
   flex-direction: column;
@@ -25,8 +47,14 @@
   top: 0;
   bottom: 0;
   left: 0;
+  transition: 0.2s;
 }
-
+.headerSwitchBtn {
+  // display: none;
+}
+.headerCover {
+  // display: none;
+}
 .headerLogoContain {
   padding: 0.8rem;
   margin-bottom: 0.4rem;
@@ -120,6 +148,7 @@
 
 .searchBar {
   display: flex;
+  // position: sticky;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -268,4 +297,27 @@
   margin-bottom: 1rem;
 }
 .productName {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 992px) {
+  .topHeader {
+    position: fixed;
+    transform: translateX(-280px);
+  }
+  .active .topHeader {
+    transform: translateX(0);
+    z-index: 99;
+  }
+  .searchBar {
+    flex: 2;
+    min-width: 280px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .topHeader {
+    // background-color: rgb(253, 120, 120);
+  }
 }

@@ -446,3 +446,12 @@
 }
 .suggestItems {
 }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (max-width: 992px) {
+  .selectedHead {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+}

@@ -78,20 +78,25 @@ function CartBtn() {
       onMouseEnter={setTrue}
       onMouseLeave={setFalse}
     >
-      <Button
-        key={"éo hiểu"}
-        Tag={"button"}
-        Type={"primary borrad"}
-        Size={"medium"}
-        Classes={"cartBtn"}
-        Children={
-          <>
-            <FontAwesomeIcon icon={faCartShopping} />
-            <p>{cartNumber}</p>
-          </>
-        }
-        className={clsx(style.cartBtn)}
-      ></Button>
+      <Link
+        to={"/cart"}
+        className={clsx(style.linkBtnToCart)}
+      >
+        <Button
+          key={"éo hiểu"}
+          Tag={"button"}
+          Type={"primary borrad"}
+          Size={"medium"}
+          Classes={"cartBtn"}
+          Children={
+            <>
+              <FontAwesomeIcon icon={faCartShopping} />
+              <p>{cartNumber}</p>
+            </>
+          }
+          className={clsx(style.cartBtn)}
+        ></Button>
+      </Link>
       <div
         className={clsx(style.cartContain, {
           [style.active]: active,

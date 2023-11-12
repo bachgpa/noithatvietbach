@@ -47,13 +47,13 @@ export const MenuItemlist = [
   {
     engTitle: "News",
     vieTitle: "Tin tức",
-    url: "/news",
+    // url: "/news",
     icon: faNewspaper,
   },
   {
     engTitle: "Contact",
     vieTitle: "Liên hệ",
-    url: "contact",
+    // url: "contact",
     icon: faPhone,
   },
 ];

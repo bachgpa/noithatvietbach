@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./cart.css";
 import AddToCartBtn from "../../component/addToCartBtn";
 import { Link } from "react-router-dom";
-// import { createStoreHook } from "react-redux";
+
 function Cart() {
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cartItems")) || []
@@ -25,7 +25,7 @@ function Cart() {
   }, [cartItems, totalMoney, selected, totalItemsInCart]);
 
   function handleFooterCount() {
-    console.log(cartItems.length === selected);
+    // console.log(cartItems.length === selected);
     let totalItems = cartItems.reduce(
       (total, currentItem) => {
         total += currentItem.quantity;
@@ -109,15 +109,6 @@ function Cart() {
 
   //set trạng thái active với sp được chọn thanh toán
 
-  function activeFatherTag(e, fatherClassName) {
-    const selectedItem = getParent(
-      e.target,
-      fatherClassName
-    );
-    selectedItem.classList.toggle("active");
-    return selectedItem;
-  }
-
   function getParent(element, selector) {
     while (element.parentElement) {
       if (element.parentElement.matches(selector)) {
@@ -171,10 +162,6 @@ function Cart() {
     const bottomCheckbox =
       bottomSelect.querySelector(".checkbox");
     const topSelect = activeAllTopRef.current;
-    // ".selectChange"
-
-    console.log("bot", bottomSelect);
-    console.log("top", topSelect);
     const topCheckbox =
       topSelect.querySelector(".checkbox");
     if (selected === cartItems.length) {
@@ -193,8 +180,6 @@ function Cart() {
         topSelect.classList.contains("active");
     }
   }
-  // handle active all:
-  // check số lượng ô active: đủ => active 2 ô đầu tiên
 
   function handleActiveAll(e) {
     if (e.target.classList.contains("selectChangeCover")) {
@@ -245,9 +230,16 @@ function Cart() {
       });
     }
   }
-  //
-  //
-  //nút mua hàng
+  // function changeActive(index, status) {
+  //   let a = cartItems.map((x) => {
+  //     x.popup = false;
+  //     return x;
+  //   });
+
+  //   a[index].popup = status;
+
+  //   setCartItems(a);
+  // }
   return (
     <div className="cartComponent">
       <section className="cartSelected">
@@ -318,27 +310,48 @@ function Cart() {
                     {item.name}
                   </Link>
                   <div
-                    className="itemClassifiedContainer"
+                    className={`itemClassifiedContainer ${
+                      item.popup ? "active" : ""
+                    }`}
                     ref={activeChildRef}
                   >
                     <div className="arrowOut"></div>
                     <div className="arrowIn"></div>
                     <div
                       className="itemClassified"
-                      onClick={(event) =>
-                        activeFatherTag(
-                          event,
-                          ".itemClassifiedContainer"
-                        )
-                      }
+                      onClick={() => {
+                        let popup = cartItems[index].popup;
+                        let a = cartItems.map((x) => {
+                          x.popup = false;
+                          return x;
+                        });
+
+                        a[index].popup = !popup;
+
+                        setCartItems(a);
+                      }}
                     >
-                      phân loại: {item.idClassified}
+                      phân loại:
+                      {item.idClassified}
                     </div>
                     <div className="classifyAdjust">
                       <AddToCartBtn
                         cardItem={item}
                         typeBtn="adj"
                         numSelect={false}
+                        stt={index}
+                        // định nghĩa 2 hàm cho component con
+                        onUpdate={(data) => {
+                          let a = [...cartItems];
+                          a[index].idClassified = data;
+                          setCartItems(a);
+                        }}
+                        onClosePopup={(i) => {
+                          let a = [...cartItems];
+                          a[i].popup = false;
+
+                          setCartItems(a);
+                        }}
                       />
                     </div>
                   </div>

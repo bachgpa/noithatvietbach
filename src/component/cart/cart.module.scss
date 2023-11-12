@@ -128,3 +128,22 @@
   color: #fff;
   background-color: var(--primary);
 }
+.linkBtnToCart {
+  display: flex;
+  // flex: 1;
+  width: 100%;
+}
+// Medium devices (tablets, 768px and up)
+@media (max-width: 992px) {
+  .cartDisplay {
+    min-width: 50px;
+    flex: 0.5;
+  }
+  .cartContain {
+    display: none;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
