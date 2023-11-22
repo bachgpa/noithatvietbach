@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/noithatvietbach/static/css/main.db7487bf.css",
-    "main.js": "/noithatvietbach/static/js/main.99996e33.js",
+    "main.css": "/noithatvietbach/static/css/main.64cabe9c.css",
+    "main.js": "/noithatvietbach/static/js/main.b9d4cb9c.js",
     "static/js/787.51782fd2.chunk.js": "/noithatvietbach/static/js/787.51782fd2.chunk.js",
     "static/media/bao hanh.png": "/noithatvietbach/static/media/bao hanh.8ca62432e9e49e24dc59.png",
     "static/media/quytrinh.png": "/noithatvietbach/static/media/quytrinh.dc0d572011c4175159ad.png",
@@ -15,12 +15,12 @@
     "static/media/new-facebook-logo-2019.jpg": "/noithatvietbach/static/media/new-facebook-logo-2019.b600d56fdd26d4de1420.jpg",
     "static/media/instagram-logo-social-media-sign-250nw-2265835221.webp": "/noithatvietbach/static/media/instagram-logo-social-media-sign-250nw-2265835221.7037d4d2384cc25bb2d5.webp",
     "index.html": "/noithatvietbach/index.html",
-    "main.db7487bf.css.map": "/noithatvietbach/static/css/main.db7487bf.css.map",
-    "main.99996e33.js.map": "/noithatvietbach/static/js/main.99996e33.js.map",
+    "main.64cabe9c.css.map": "/noithatvietbach/static/css/main.64cabe9c.css.map",
+    "main.b9d4cb9c.js.map": "/noithatvietbach/static/js/main.b9d4cb9c.js.map",
     "787.51782fd2.chunk.js.map": "/noithatvietbach/static/js/787.51782fd2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.db7487bf.css",
-    "static/js/main.99996e33.js"
+    "static/css/main.64cabe9c.css",
+    "static/js/main.b9d4cb9c.js"
   ]
 }
