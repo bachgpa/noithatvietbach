@@ -20,12 +20,15 @@ function Cart() {
   useEffect(() => {
     handleFooterCount();
     activeTopBot();
-    console.log("useEffect đang chạy");
+    // console.log("useEffect đang chạy");
+
+    // setCartItems(
+    //   JSON.parse(localStorage.getItem("cartItems")) || []
+    // );
     // eslint-disable-next-line
-  }, [cartItems, totalMoney, selected, totalItemsInCart]);
+  }, [totalMoney, selected, totalItemsInCart]);
 
   function handleFooterCount() {
-    // console.log(cartItems.length === selected);
     let totalItems = cartItems.reduce(
       (total, currentItem) => {
         total += currentItem.quantity;
@@ -68,27 +71,31 @@ function Cart() {
       setTotalMoney(0);
     }
   }
-  function handleDelete(e) {
-    console.log("delete");
-    cartItems.splice(e.target.getAttribute("stt"), 1);
-    localStorage.setItem(
-      "cartItems",
-      JSON.stringify(cartItems)
-    );
-    setCartItems(
-      JSON.parse(localStorage.getItem("cartItems"))
-    );
+  /////////////////////////////////////////////////////////////
+  function handleDelete(index) {
+    // let a = [...cartItems];
+    let a = JSON.parse(localStorage.getItem("cartItems"));
+    console.log("a before", a);
+    a.splice(index, 1);
+    localStorage.setItem("cartItems", JSON.stringify(a));
+    setCartItems((newList) => {
+      newList = JSON.parse(
+        localStorage.getItem("cartItems")
+      );
+      console.log("newlist: ", newList);
+      return newList;
+    });
+    console.log(" cartItems after", a);
   }
   function subTractHandle(e) {
     const stt = e.target.getAttribute("stt");
-    cartItems[stt].quantity -= 1;
-    if (cartItems[stt].quantity <= 0) {
-      cartItems.splice(stt, 1);
+    let a = JSON.parse(localStorage.getItem("cartItems"));
+    a[stt].quantity -= 1;
+    if (a[stt].quantity <= 0) {
+      a.splice(stt, 1);
+      console.log(a[stt].quantity);
     }
-    localStorage.setItem(
-      "cartItems",
-      JSON.stringify(cartItems)
-    );
+    localStorage.setItem("cartItems", JSON.stringify(a));
     setCartItems(
       JSON.parse(localStorage.getItem("cartItems"))
     );
@@ -97,11 +104,9 @@ function Cart() {
   function plusHandle(e) {
     // setNum(num + 1);
     const stt = e.target.getAttribute("stt");
-    cartItems[stt].quantity += 1;
-    localStorage.setItem(
-      "cartItems",
-      JSON.stringify(cartItems)
-    );
+    let a = JSON.parse(localStorage.getItem("cartItems"));
+    a[stt].quantity += 1;
+    localStorage.setItem("cartItems", JSON.stringify(a));
     setCartItems(
       JSON.parse(localStorage.getItem("cartItems"))
     );
@@ -273,7 +278,10 @@ function Cart() {
           </div>
         </div>
         <div className="selectedContainer">
-          {cartItems.map((item, index) => {
+          {/* thay cartItems bằng chuỗi lấy từ local  */}
+          {JSON.parse(
+            localStorage.getItem("cartItems")
+          ).map((item, index) => {
             return (
               <div className="selectedItem" stt={index}>
                 <div className="selectedHead">
@@ -391,8 +399,10 @@ function Cart() {
                   </div>
                   <div
                     className="deleteBtn"
-                    onClick={handleDelete}
-                    stt={index}
+                    onClick={() => {
+                      handleDelete(index);
+                    }}
+                    // stt={index}
                   >
                     xóa
                   </div>

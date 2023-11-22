@@ -140,7 +140,6 @@
 .infoColor {
 }
 .infoOptions {
-  margin: 0 8px 0 0;
   padding: 4px 12px;
   margin: 8px 4px;
   position: relative;
@@ -215,4 +214,63 @@
 .colorOfProduct {
 }
 .infoInsurance {
+}
+
+@media (max-width: 992px) {
+  .AddBtnContainer {
+    /* height: 42px; */
+  }
+
+  .adjOption {
+    background-color: transparent;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    padding: 0 16px 8px 0px;
+  }
+  .infoColor,
+  .infoSize {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .infoTitle h4 {
+    min-width: none;
+    display: flex;
+  }
+  .infoOptions {
+    margin: 8px 8px 8px 0;
+  }
+
+  .adjNumber {
+    /* height: 48px; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    margin-bottom: 14px;
+    margin-top: 14px;
+  }
+  .adjNumber .subtractBtn {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .adjNumber .currentNumber {
+    font-size: 22px;
+    margin: 0 18px;
+  }
+
+  .adjNumber .addBtn {
+    font-size: 22px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .addToCartBtn {
+    height: 50px;
+  }
+  .adjustContainer {
+    display: flex;
+  }
 }

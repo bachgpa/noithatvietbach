@@ -13,14 +13,27 @@
 }
 .floatContainer {
   display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
   background-color: #fff;
   color: #000;
   padding: 18px;
   border-radius: 12px;
   margin: 24px;
+  max-width: 820px;
+  min-width: 408px;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 410px), 1fr)
+  );
 }
 .floatImg {
+}
+.carouselContainer {
+  display: flex;
+  width: 100%;
 }
 .infoContainer {
   display: flex;
@@ -31,10 +44,83 @@
   margin-bottom: 48px;
 }
 .floatName {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 .floatCategory {
+  font-style: italic;
+  margin-bottom: 12px;
 }
 .floatPrice {
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--primary);
 }
 .floatDescription {
+}
+@media (max-width: 992px) {
+  .backgroundFloat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 99;
+    background-color: rgb(0, 0, 0, 0.5);
+    color: #fff;
+  }
+  .floatContainer {
+    /* margin-left: 180px; */
+    max-width: 520px;
+    min-width: 310px;
+    height: 60vh;
+    overflow-y: auto;
+  }
+
+  /* width */
+  .floatContainer::-webkit-scrollbar {
+    width: 12px;
+    transition: all 0.3s;
+    /* display: none; */
+  }
+  /* width */
+  .floatContainer::-webkit-scrollbar:hover {
+    width: 18px;
+  }
+
+  /* Track */
+  .floatContainer::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  /* Track */
+  .floatContainer::-webkit-scrollbar-button {
+    background: transparent;
+    height: 12px;
+  }
+
+  /* Handle */
+  .floatContainer::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 90px;
+  }
+
+  /* Handle on hover */
+  .floatContainer::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .carouselContainer {
+    margin-bottom: 24px;
+  }
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+  }
+  .floatInfo {
+    margin-bottom: 0;
+  }
 }

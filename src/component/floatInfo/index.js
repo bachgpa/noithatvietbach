@@ -10,6 +10,15 @@ function FloatInfo() {
   const floatRef = useRef(null);
   const bgFloatRef = useRef(null);
 
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "VND",
+
+    // These options are needed to round to whole numbers if that's what you want.
+    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+
   function handleOutsideClick(e) {
     e.preventDefault();
     if (
@@ -50,7 +59,9 @@ function FloatInfo() {
             ref={floatRef}
             onClick={handleOutsideClick}
           >
-            <Carousel items={selectedCard.carousel} />
+            <div className="carouselContainer">
+              <Carousel items={selectedCard.carousel} />
+            </div>
             <div className="infoContainer">
               <div className="floatInfo">
                 <div className="floatName">
@@ -60,7 +71,7 @@ function FloatInfo() {
                   {selectedCard.category}
                 </div>
                 <div className="floatPrice">
-                  {selectedCard.price}
+                  {formatter.format(selectedCard.price)}
                 </div>
                 <div className="floatDescription">
                   {selectedCard.description}

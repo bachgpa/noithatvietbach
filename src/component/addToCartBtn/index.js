@@ -217,16 +217,6 @@ function AddToCartBtn({
       }
     }
   }
-  // hủy setActive của thẻ cha bên CartPage
-  // function handleCloseElement() {
-  //   const closeBtn = document.querySelector(".backBtn");
-  //   const toggleActive = getParent(
-  //     closeBtn,
-  //     ".itemClassifiedContainer"
-  //   );
-  //   toggleActive.classList.remove("active");
-  // }
-  // function handleConfirmOption(e) {}
   return (
     <div className="AddBtnContainer" ref={addBtnRef}>
       <div className="infoAddBtnContainer">

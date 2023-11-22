@@ -449,9 +449,57 @@
 
 /* // Medium devices (tablets, 768px and up) */
 @media (max-width: 992px) {
+  .selectedItem {
+    display: flex;
+    flex-direction: column;
+  }
   .selectedHead {
     display: flex;
     align-items: center;
+    /* flex-direction: column; */
     flex: 1;
+  }
+  .itemImg {
+    width: 80px;
+  }
+  .selectedTail {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    flex: 1;
+    justify-content: flex-end;
+    & .deleteBtn {
+      display: none;
+    }
+    & .price {
+      margin-right: 120px;
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+  }
+
+  .adjNumber {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  .adjNumber .subtractBtn {
+    font-size: 16px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .adjNumber .currentNumber {
+    font-size: 16px;
+    padding: 0 18px;
+    margin: 0;
+  }
+
+  .adjNumber .addBtn {
+    font-size: 16px;
+    width: 38px;
+    height: 38px;
   }
 }

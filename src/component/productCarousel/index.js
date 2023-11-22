@@ -37,12 +37,24 @@ function Carousel({ items }) {
           {items.map((item, index) => {
             return (
               index === current && (
-                <img
+                <div
                   key={index}
                   className={clsx(style.carouselMainImg)}
                   alt="anh san pham"
-                  src={item}
-                />
+                  // src={item}
+                  style={{
+                    backgroundImage: `url(${item})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    overflow: "hidden",
+                  }}
+                ></div>
+                // <img
+                //   key={index}
+                //   className={clsx(style.carouselMainImg)}
+                //   alt="anh san pham"
+                //   src={item}
+                // />
               )
             );
           })}
