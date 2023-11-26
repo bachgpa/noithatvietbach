@@ -14,10 +14,6 @@
   display: flex;
   width: var(--carousel-square);
   height: var(--carousel-square);
-  // min-height: 390px;
-  // max-height: 390px;
-  // min-width: 390px;
-  // max-width: 390px;
   object-fit: cover;
   object-position: center;
   overflow: hidden;
@@ -35,10 +31,6 @@
 .carouselItemContainer {
   display: inline-flex;
   overflow-x: scroll;
-  // min-width: 390px;
-  // max-width: 390px;
-  // scrollbar-width: none;
-  // -ms-overflow-style: none;
   width: var(--carousel-square);
 
   border-radius: var(--border-radius);

@@ -49,12 +49,6 @@ function Carousel({ items }) {
                     overflow: "hidden",
                   }}
                 ></div>
-                // <img
-                //   key={index}
-                //   className={clsx(style.carouselMainImg)}
-                //   alt="anh san pham"
-                //   src={item}
-                // />
               )
             );
           })}

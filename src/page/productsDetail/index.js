@@ -39,7 +39,13 @@ function ProductsDetail() {
           {/* box info */}
           <div className={clsx(style.InfoBox)}>
             <div className={clsx(style.productPrice)}>
-              {currentProduct.price}
+              {currentProduct.price.toLocaleString(
+                "en-US",
+                {
+                  style: "currency",
+                  currency: "VND",
+                }
+              )}
             </div>
 
             <div className={clsx(style.infoTable)}>
