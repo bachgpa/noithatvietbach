@@ -39,7 +39,7 @@ function AddToCartBtn({
   }
   itemsToStorage =
     // eslint-disable-next-line
-    JSON.parse(localStorage.getItem("cartItems"));
+    JSON.parse(localStorage.getItem("cartItems")) || [];
   useEffect(() => {
     document.addEventListener(
       "mousedown",

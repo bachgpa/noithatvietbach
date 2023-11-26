@@ -447,21 +447,16 @@
 }
 
 /* // Medium devices (tablets, 768px and up) */
-@media (max-width: 992px) {
+@media (max-width: 660px) {
   .selectedItem {
-    display: flex;
-    flex-direction: column;
-  }
-  .selectedHead {
-    display: flex;
-    align-items: center;
     /* flex-direction: column; */
-    flex: 1;
   }
-  .itemImg {
-    width: 80px;
+  .itemName {
+    margin-right: 0;
+    padding-left: 0;
   }
   .selectedTail {
+    position: relative;
     margin-top: 12px;
     display: flex;
     flex-direction: column-reverse;
@@ -472,11 +467,25 @@
       display: none;
     }
     & .price {
-      margin-right: 120px;
       margin-bottom: 12px;
+      justify-content: flex-end;
       color: var(--primary);
       font-weight: 600;
+      display: flex;
+      position: absolute;
+      top: -30px;
     }
+  }
+}
+
+@media (max-width: 992px) {
+  /* .selectedItem {
+    display: flex;
+    flex-direction: column;
+  } */
+
+  .itemImg {
+    width: 80px;
   }
 
   .adjNumber {
@@ -501,9 +510,7 @@
     width: 38px;
     height: 38px;
   }
-}
 
-@media (max-width: 992px) {
   .headerSelected {
     display: none;
   }
@@ -557,6 +564,60 @@
     & span {
       display: none;
     }
+  }
+  .itemClassifiedContainer {
+    max-width: 120px;
+  }
+  .selectedItem {
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--border-color);
+    user-select: none;
+    margin-bottom: 12px;
+    .selectedHead {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      flex: 3;
+    }
+    .selectedTail {
+      position: relative;
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      flex: 1;
+      justify-content: flex-end;
+    }
+  }
+  .deleteBtn {
+    display: none;
+  }
+  .price {
+    /* margin-right: 120px; */
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-weight: 600;
+    display: flex;
+    /* position: absolute;
+    top: -32px; */
+  }
+  .adjNumber {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  /* .itemClassified {
+    width: 29%;
+  } */
+  .itemName {
+    height: 100%;
+    min-width: 110px;
+    display: flex;
+    flex: 1;
+    /* background-color: #2196f3; */
   }
   .totalCount {
     display: flex;
