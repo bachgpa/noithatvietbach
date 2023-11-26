@@ -279,137 +279,139 @@ function Cart() {
         </div>
         <div className="selectedContainer">
           {/* thay cartItems bằng chuỗi lấy từ local  */}
-          {JSON.parse(
-            localStorage.getItem("cartItems")
-          ).map((item, index) => {
-            return (
-              <div className="selectedItem" stt={index}>
-                <div className="selectedHead">
-                  <div
-                    className="selectChange"
-                    onClick={(e) => {
-                      return handleActiveItem(e.target);
-                    }}
-                  >
-                    <div className="inputContainer">
-                      <input
-                        id="singleCheckbox"
-                        className="singleCheckbox checkbox"
-                        type="checkbox"
-                        key={index}
-                      ></input>
-                      <div class="checkmark"></div>
-                    </div>
+          {JSON.parse(localStorage.getItem("cartItems")) &&
+            JSON.parse(
+              localStorage.getItem("cartItems")
+            ).map((item, index) => {
+              return (
+                <div className="selectedItem" stt={index}>
+                  <div className="selectedHead">
                     <div
-                      className="singleCheckboxLabel"
-                      // for="singleCheckbox"
-                    >
-                      <img
-                        className="itemImg"
-                        alt="img"
-                        src={item.image}
-                      />
-                    </div>
-                  </div>
-                  <Link
-                    to={`.././products/${item.id}`}
-                    className="itemName"
-                  >
-                    {item.name}
-                  </Link>
-                  <div
-                    className={`itemClassifiedContainer ${
-                      item.popup ? "active" : ""
-                    }`}
-                    ref={activeChildRef}
-                  >
-                    <div className="arrowOut"></div>
-                    <div className="arrowIn"></div>
-                    <div
-                      className="itemClassified"
-                      onClick={() => {
-                        let popup = cartItems[index].popup;
-                        let a = cartItems.map((x) => {
-                          x.popup = false;
-                          return x;
-                        });
-
-                        a[index].popup = !popup;
-
-                        setCartItems(a);
+                      className="selectChange"
+                      onClick={(e) => {
+                        return handleActiveItem(e.target);
                       }}
                     >
-                      phân loại:
-                      {item.idClassified}
+                      <div className="inputContainer">
+                        <input
+                          id="singleCheckbox"
+                          className="singleCheckbox checkbox"
+                          type="checkbox"
+                          key={index}
+                        ></input>
+                        <div class="checkmark"></div>
+                      </div>
+                      <div
+                        className="singleCheckboxLabel"
+                        // for="singleCheckbox"
+                      >
+                        <img
+                          className="itemImg"
+                          alt="img"
+                          src={item.image}
+                        />
+                      </div>
                     </div>
-                    <div className="classifyAdjust">
-                      <AddToCartBtn
-                        cardItem={item}
-                        typeBtn="adj"
-                        numSelect={false}
-                        stt={index}
-                        // định nghĩa 2 hàm cho component con
-                        onUpdate={(data) => {
-                          let a = [...cartItems];
-                          a[index].idClassified = data;
-                          setCartItems(a);
-                        }}
-                        onClosePopup={(i) => {
-                          let a = [...cartItems];
-                          a[i].popup = false;
+                    <Link
+                      to={`.././products/${item.id}`}
+                      className="itemName"
+                    >
+                      {item.name}
+                    </Link>
+                    <div
+                      className={`itemClassifiedContainer ${
+                        item.popup ? "active" : ""
+                      }`}
+                      ref={activeChildRef}
+                    >
+                      <div className="arrowOut"></div>
+                      <div className="arrowIn"></div>
+                      <div
+                        className="itemClassified"
+                        onClick={() => {
+                          let popup =
+                            cartItems[index].popup;
+                          let a = cartItems.map((x) => {
+                            x.popup = false;
+                            return x;
+                          });
+
+                          a[index].popup = !popup;
 
                           setCartItems(a);
                         }}
-                      />
+                      >
+                        phân loại:
+                        {item.idClassified}
+                      </div>
+                      <div className="classifyAdjust">
+                        <AddToCartBtn
+                          cardItem={item}
+                          typeBtn="adj"
+                          numSelect={false}
+                          stt={index}
+                          // định nghĩa 2 hàm cho component con
+                          onUpdate={(data) => {
+                            let a = [...cartItems];
+                            a[index].idClassified = data;
+                            setCartItems(a);
+                          }}
+                          onClosePopup={(i) => {
+                            let a = [...cartItems];
+                            a[i].popup = false;
+
+                            setCartItems(a);
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="selectedTail">
-                  <div className="number adjNumber">
-                    <button
-                      idClassified={item.idClassified}
-                      stt={index}
-                      className="subtractBtn"
-                      onClick={subTractHandle}
-                    >
-                      -
-                    </button>
+                  <div className="selectedTail">
+                    <div className="number adjNumber">
+                      <button
+                        idClassified={item.idClassified}
+                        stt={index}
+                        className="subtractBtn"
+                        onClick={subTractHandle}
+                      >
+                        -
+                      </button>
+                      <div
+                        className="currentNumber"
+                        idClassified={item.idClassified}
+                        stt={index}
+                      >
+                        {item.quantity}
+                        {/* {num} */}
+                      </div>
+                      <button
+                        idClassified={item.idClassified}
+                        stt={index}
+                        className="addBtn"
+                        onClick={plusHandle}
+                      >
+                        +
+                      </button>
+                    </div>
+                    <div className="price">
+                      {item.price.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "VND",
+                      })}
+                    </div>
                     <div
-                      className="currentNumber"
-                      idClassified={item.idClassified}
-                      stt={index}
+                      className="deleteBtn"
+                      onClick={() => {
+                        handleDelete(index);
+                      }}
+                      // stt={index}
                     >
-                      {item.quantity}
-                      {/* {num} */}
+                      xóa
                     </div>
-                    <button
-                      idClassified={item.idClassified}
-                      stt={index}
-                      className="addBtn"
-                      onClick={plusHandle}
-                    >
-                      +
-                    </button>
-                  </div>
-                  <div className="price">
-                    {item.price.toLocaleString("en-US", {
-                      style: "currency",
-                      currency: "VND",
-                    })}
-                  </div>
-                  <div
-                    className="deleteBtn"
-                    onClick={() => {
-                      handleDelete(index);
-                    }}
-                    // stt={index}
-                  >
-                    xóa
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
         <div className="cartFooter">
           <div className="footerCartInfo">
@@ -443,12 +445,12 @@ function Cart() {
               </div>
             </div>
           </div>
-          <div className="confirmBuy">Nút mua hàng</div>
+          <div className="confirmBuy">Thanh toán</div>
         </div>
       </section>
-      <section className="suggestItems">
+      {/* <section className="suggestItems">
         sản phẩm đề xuất
-      </section>
+      </section> */}
     </div>
   );
 }

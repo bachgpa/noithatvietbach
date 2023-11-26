@@ -70,50 +70,68 @@ function Footer({ ojb }) {
               </h3>
               <div className="ContainerBtnCtn">
                 <div className="footerInfoDetail btnContainer">
-                  <Button
-                    Type={"bgcWhite"}
-                    Children={
-                      <>
-                        <img
-                          class="logoFB"
-                          alt="anh san pham"
-                          src={require("../../assets/icon/new-facebook-logo-2019.jpg")}
-                        />
-                      </>
-                    }
-                  />
+                  <a
+                    href="https://www.facebook.com/bachgpa"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button
+                      Type={"bgcWhite"}
+                      Children={
+                        <>
+                          <img
+                            class="logoFB"
+                            alt="anh san pham"
+                            src={require("../../assets/icon/new-facebook-logo-2019.jpg")}
+                          />
+                        </>
+                      }
+                    />
+                  </a>
                 </div>
               </div>
               <div className="ContainerBtnCtn">
                 <div className="footerInfoDetail btnContainer">
-                  <Button
-                    Type="bgcWhite"
-                    Children={
-                      <>
-                        <img
-                          class="logoInsta"
-                          alt="anh san pham"
-                          src={require("../../assets/icon/instagram-logo-social-media-sign-250nw-2265835221.webp")}
-                        />
-                      </>
-                    }
-                  />
+                  <a
+                    href="https://www.facebook.com/bachgpa"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button
+                      Type="bgcWhite"
+                      Children={
+                        <>
+                          <img
+                            class="logoInsta"
+                            alt="anh san pham"
+                            src={require("../../assets/icon/instagram-logo-social-media-sign-250nw-2265835221.webp")}
+                          />
+                        </>
+                      }
+                    />
+                  </a>
                 </div>
               </div>
               <div className="ContainerBtnCtn">
                 <div className="footerInfoDetail btnContainer">
-                  <Button
-                    Type="bgcWhite"
-                    Children={
-                      <>
-                        <img
-                          class="logoZalo"
-                          alt="anh san pham"
-                          src={require("../../assets/icon/logo-zalo-02.jpg")}
-                        />
-                      </>
-                    }
-                  />
+                  <a
+                    href="https://www.facebook.com/bachgpa"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button
+                      Type="bgcWhite"
+                      Children={
+                        <>
+                          <img
+                            class="logoZalo"
+                            alt="anh san pham"
+                            src={require("../../assets/icon/logo-zalo-02.jpg")}
+                          />
+                        </>
+                      }
+                    />
+                  </a>
                 </div>
               </div>
             </div>

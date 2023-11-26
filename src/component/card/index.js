@@ -46,7 +46,11 @@ function Card({ props, css }) {
           {props.name}
         </div>
         <div className={clsx(css.cardPrice)}>
-          {props.price}
+          {/* {props.price} */}
+          {props.price.toLocaleString("en-US", {
+            style: "currency",
+            currency: "VND",
+          })}
         </div>
       </div>
     </div>

@@ -160,7 +160,7 @@
 }
 
 /* Style the checkmark/indicator */
-.inputContainer .checkmark:after {
+.inputContainer .checkmark::after {
   left: 9px;
   top: 5px;
   width: 5px;
@@ -395,20 +395,19 @@
     background-color: #fff;
     background-color: var(--primary);
   }
-
-  /* Style the checkmark/indicator */
-  .inputContainer .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    /* border: solid var(--primary); */
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
+}
+/* Style the checkmark/indicator */
+.inputContainer .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  /* border: solid var(--primary); */
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .totalCount {
   display: flex;
@@ -501,5 +500,82 @@
     font-size: 16px;
     width: 38px;
     height: 38px;
+  }
+}
+
+@media (max-width: 992px) {
+  .headerSelected {
+    display: none;
+  }
+  .inputContainer {
+    height: 16px;
+    min-width: 16px;
+  }
+  .inputContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #d4d4d4;
+  }
+
+  .inputContainer .checkmark::after {
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border: solid var(--primary);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .cartFooter {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+  }
+  .checkboxAllFooter {
+    justify-content: flex-start;
+    .checkmark::after {
+      left: 5px;
+      top: 2px;
+      width: 4px;
+      height: 8px;
+      border: solid white;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+    & span {
+      display: none;
+    }
+  }
+  .totalCount {
+    display: flex;
+    .productsCount {
+      display: none;
+    }
+  }
+  .totalCash {
+    font-size: 13px;
+  }
+  .confirmBuy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: #fff;
+    min-width: 90px;
+    border-radius: 8px;
+    margin-left: 12px;
+    height: 34px;
   }
 }

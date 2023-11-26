@@ -108,7 +108,7 @@ for (var a = 1; a < 100; a++) {
       id: a + 2,
       name: `gì đó đá gỗ sồi cô đơn trên sofa ${a}`,
       category: "Chiếu",
-      price: 1500000000000000,
+      price: 1500000000,
       description:
         "Ghế sofa da thật, bàn trà ngồi bên trên êm ái và thoải mái.",
       image: require("../../assets/products/sofaSquare.jpg"),
